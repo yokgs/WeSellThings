@@ -64,6 +64,13 @@ var ajax2 = [
         titre: "taggiya"
     }
 ]
+var ajax3 = [
+    {
+        titre: "The Latest Collection",
+        discount:"99% discount",
+        img:'images/openshoe.jpg'
+    }
+]
 
 
 
@@ -90,9 +97,17 @@ function remplirTrending(data) {
     $("#trendingNumTitle").html(html);
     $("#quatreImg").html(img);
 }
+function remplirDiscountargs(data) {
+    var html = "";
+    data.forEach(function (x, i) {
+        html += remplirDiscount(x.titre, x.discount, x.img);
+    });
+    $("#discount").html(html);
+}
 
 remplirTop(ajax);
 remplirTrending(ajax2);
+remplirDiscountargs(ajax3);
 
 
 
