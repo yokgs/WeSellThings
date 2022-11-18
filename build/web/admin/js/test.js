@@ -10,6 +10,30 @@ var ajax = [
         description: "ki neem"
     },
     {
+        item: "lachg   ar",
+        description: "boss"
+    },
+    {
+        item: "yazid",
+        description: "boss"
+    },
+    {
+        item: "lachgar",
+        description: "boss"
+    },
+    {
+        item: "yazid",
+        description: "boss"
+    },
+    {
+        item: "lachgar",
+        description: "boss"
+    },
+    {
+        item: "yazid",
+        description: "boss"
+    },
+    {
         item: "lachgar",
         description: "boss"
     },
