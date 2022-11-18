@@ -50,11 +50,11 @@ public class Categorie {
         this.nom = nom;
     }
 
-    public Categorie getSousCategories() {
+    public Categorie getCategorie() {
         return categorie;
     }
 
-    public void setSousCategories(Categorie categorie) {
+    public void setCategorie(Categorie categorie) {
         this.categorie = categorie;
     }
 

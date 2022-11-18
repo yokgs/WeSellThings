@@ -5,10 +5,19 @@
  */
 package service;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 /**
  *
  * @author user
  */
 public class PasswordService {
+
+    public static String hash(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt(10));
+    }
     
+    public static boolean verify(String password, String hash){
+        return BCrypt.checkpw(password, hash);
+    }
 }

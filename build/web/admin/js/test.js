@@ -1,70 +1,43 @@
-
-
 var ajax = [
     {
-        item: "saad",
-        description: "derri nadi"
+        id: "1",
+        marque: "capuchon",
+        nbrProduit: "5"
     },
     {
-        item: "mamoun",
-        description: "ki neem"
+        id: "1",
+        marque: "capuchon",
+        nbrProduit: "5"
     },
     {
-        item: "lachg   ar",
-        description: "boss"
+        id: "1",
+        marque: "capuchon",
+        nbrProduit: "5"
     },
     {
-        item: "yazid",
-        description: "boss"
+        id: "1",
+        marque: "capuchon",
+        nbrProduit: "5"
     },
     {
-        item: "lachgar",
-        description: "boss"
+        id: "1",
+        marque: "capuchon",
+        nbrProduit: "5"
     },
     {
-        item: "yazid",
-        description: "boss"
+        id: "1",
+        marque: "capuchon",
+        nbrProduit: "5"
     },
-    {
-        item: "lachgar",
-        description: "boss"
-    },
-    {
-        item: "yazid",
-        description: "boss"
-    },
-    {
-        item: "lachgar",
-        description: "boss"
-    },
-    {
-        item: "yazid",
-        description: "boss"
-    },
-    {
-        item: "brioual ",
-        description: "bataatan"
-    }
+   
 ]
 
-
-
-
-function remplir(data) {
-    var html = "",
-        indicator = "";
-    data.forEach(function (x, i) {
-        indicator += '<li data-target="#topproduits" data-slide-to="' + i + '" class="' + (i == 0 ? 'active' : '') + '">777</li>';
-        html += remplirLatestProduit("top ", x.item, x.description, i == 0 ? 'active' : '');
+function remplirListeMarqueArgs(data) {
+    var html = "";
+    data.forEach(function (x) {
+        html += remplirListeMarque(x.id,x.marque, x.nbrProduit);
     });
-    $("#topproduitsinner").html(html);
-    $("#topproduitsindex").html(indicator);
+    $("#tableMarque").html(html);
 }
 
-remplir(ajax);
-
-
-
-
-
-
+remplirListeMarqueArgs(ajax);
