@@ -6,6 +6,7 @@
 package controller;
 
 import com.google.gson.Gson;
+import entities.Admin;
 import entities.User;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -13,9 +14,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import service.PasswordService;
 import service.UserService;
-import sun.security.provider.MD5;
-import sun.security.rsa.RSASignature;
 
 /**
  *
@@ -26,16 +27,6 @@ public class LoginController extends HttpServlet {
 
     private UserService us = new UserService();
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -69,12 +60,15 @@ public class LoginController extends HttpServlet {
 
         user = us.findByEmail(email);
         if (user != null) {
-             user.getPassword();
+            if (PasswordService.verify(password, user.getPassword())) {
+                HttpSession session = request.getSession();
+                session.setAttribute("user-o", user);
+                session.setAttribute("user-r", user instanceof Admin ? "admin" : "client");
+                response.sendRedirect("index.html");
+            }
         }
-        response.setContentType("application/json");
-        Gson gson = new Gson();
 
-        response.getWriter().write(gson.toJson(user));
+        response.sendRedirect("login.html");
 
     }
 
