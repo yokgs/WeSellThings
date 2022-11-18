@@ -6,7 +6,7 @@ var ajax = [
         description: "derri nadi"
     },
     {
-        item: "mamoun",
+        item: "mamon",
         description: "ki neem"
     },
     {
@@ -47,10 +47,28 @@ var ajax = [
     }
 ]
 
+var ajax2 = [
+    {
+        titre: "T-shirt nadi"
+    },
+    {
+        titre: "sbbat wa3r "
+    },
+    {
+        titre: "sbrdoukha"
+    },
+    {
+        titre: "komama"
+    },
+    {
+        titre: "taggiya"
+    }
+]
 
 
 
-function remplir(data) {
+
+function remplirTop(data) {
     var html = "",
         indicator = "";
     data.forEach(function (x, i) {
@@ -60,8 +78,21 @@ function remplir(data) {
     $("#topproduitsinner").html(html);
     $("#topproduitsindex").html(indicator);
 }
+function remplirTrending(data) {
+    var html = "";
+    var img = "";
+    data.forEach(function (x, i) {
+        let id = 'y' + i;
+        html += remplirNumTitreProduit(i+1, x.titre, id, i==0);
+        img += remplirImgProduit('images/sbrdoukha.jpg', 'images/br9l.jfif','images/sndalatuellement.jfif', 'images/sbat.jpg', id, i==0);
 
-remplir(ajax);
+    });
+    $("#trendingNumTitle").html(html);
+    $("#quatreImg").html(img);
+}
+
+remplirTop(ajax);
+remplirTrending(ajax2);
 
 
 
