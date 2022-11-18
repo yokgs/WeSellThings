@@ -5,11 +5,13 @@
  */
 package entities;
 
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -20,7 +22,7 @@ public class Produit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String nom,destination,image, description;
+    private String nom,designation,image, description;
     private double prix;
     private int unite;
     
@@ -31,7 +33,29 @@ public class Produit {
     @ManyToOne
     private Marque marque;
     
+    @OneToMany
+    private List<LigneCommande> ligneCommandes;
+    
     public Produit() {
+    }
+
+    public Produit(String nom, String designation, String image, String description, double prix, int unite, Categorie categorie, Marque marque) {
+        this.nom = nom;
+        this.designation = designation;
+        this.image = image;
+        this.description = description;
+        this.prix = prix;
+        this.unite = unite;
+        this.categorie = categorie;
+        this.marque = marque;
+    }
+
+    public List<LigneCommande> getLigneCommandes() {
+        return ligneCommandes;
+    }
+
+    public void setLigneCommandes(List<LigneCommande> ligneCommandes) {
+        this.ligneCommandes = ligneCommandes;
     }
 
     public int getId() {
@@ -48,6 +72,62 @@ public class Produit {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getPrix() {
+        return prix;
+    }
+
+    public void setPrix(double prix) {
+        this.prix = prix;
+    }
+
+    public int getUnite() {
+        return unite;
+    }
+
+    public void setUnite(int unite) {
+        this.unite = unite;
+    }
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
+
+    public Marque getMarque() {
+        return marque;
+    }
+
+    public void setMarque(Marque marque) {
+        this.marque = marque;
     }
     
     
