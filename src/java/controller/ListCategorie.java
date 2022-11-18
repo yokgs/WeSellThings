@@ -6,9 +6,13 @@
 package controller;
 
 import com.google.gson.Gson;
+import dto.CategorieDTO;
+import dto.ProduitDTO;
 import entities.Categorie;
 import entities.Marque;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,26 +27,31 @@ import service.MarqueService;
  */
 @WebServlet(name = "ListCategorie", urlPatterns = {"/categorie"})
 public class ListCategorie extends HttpServlet {
-  private CategorieService cs = new CategorieService();
-    
+
+    private CategorieService cs = new CategorieService();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Gson gson = new Gson();
-        response.getWriter().write(gson.toJson(cs.findAll()));
+        List<CategorieDTO> cdto = new ArrayList<>();
+        cs.findAll().forEach(x -> {
+            cdto.add(new CategorieDTO(x));
+        });
+        response.getWriter().write(gson.toJson(cdto));
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String nom = request.getParameter("nom");
-        
+
         int id = Integer.parseInt(request.getParameter("id"));
         Categorie categorie = cs.findById(id);
         cs.create(new Categorie(nom, categorie));
         this.doGet(request, response);
     }
-    
+
     @Override
     public String getServletInfo() {
         return "Short description";
