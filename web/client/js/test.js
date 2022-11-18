@@ -104,10 +104,10 @@ function remplirDiscountargs(data) {
     });
     $("#discount").html(html);
 }
-
 remplirTop(ajax);
 remplirTrending(ajax2);
 remplirDiscountargs(ajax3);
+
 
 
 
