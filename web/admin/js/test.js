@@ -63,13 +63,13 @@ var ajax22 = [
     }
 ]
 
-function remplirListeMarqueArgs(data) {
+/*function remplirListeMarqueArgs(data) {
     var html = "";
     data.forEach(function (x) {
         html += remplirListeMarque(x.id,x.marque, x.nbrProduit);
     });
     $("#tableMarque").html(html);
-}
+}*/
 function remplirListeSousCategorieArgs(data) {
     var html = "";
     data.forEach(function (x,i) {

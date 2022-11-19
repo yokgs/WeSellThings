@@ -33,7 +33,8 @@ public class Produit {
     @ManyToOne
     private Marque marque;
     
-    @OneToMany
+   
+    @OneToMany(mappedBy = "produit")
     private List<LigneCommande> ligneCommandes;
     
     public Produit() {

@@ -1,13 +1,23 @@
 
-$(document).ready(function(){
+$(document).ready(function () {
 
-    $('#btnAddMarque').click(function(){
+    $('#btnAddMarque').click(function () {
 
-var nom =  $('#nomMarque').val();
+        var nom = $('#nomMarque').val();
+        $.ajax({
+            url: '/marque',
+            method: 'POST',
+            data: {
+                nom: nom
+            },
+            success: function (data, textStatus, jqXHR) {
+                alert('La marque "' + nom + '" est bien ajoutée ! ');
+                $('#nomMarque').val('');
+            }
+        });
 
-        $('#nomMarque').val('')
-        alert('La marque "'+nom+'" est bien ajoutée ! ')
-        
+
+
     })
 
 

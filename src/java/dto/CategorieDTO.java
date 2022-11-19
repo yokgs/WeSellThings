@@ -19,7 +19,7 @@ public class CategorieDTO {
     public CategorieDTO(Categorie categorie) {
         this.id = categorie.getId();
         this.nom = categorie.getNom();
-        this.categorie = categorie.getCategorie().getNom();
+        this.categorie = categorie.getSupCategorie().getNom();
     }
 
     public int getId() {

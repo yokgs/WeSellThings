@@ -7,6 +7,7 @@ package entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,8 +34,9 @@ public class Commande implements Serializable{
     @ManyToOne
     private Client client;
     
-    @OneToMany
-    private LigneCommande ligneCommande;
+    
+    @OneToMany(mappedBy = "commande")
+    private List<LigneCommande> ligneCommandes;
 
     public Commande() {
     }
@@ -63,13 +65,14 @@ public class Commande implements Serializable{
         this.client = client;
     }
 
-    public LigneCommande getLigneCommande() {
-        return ligneCommande;
+    public List<LigneCommande> getLigneCommandes() {
+        return ligneCommandes;
     }
 
-    public void setLigneCommande(LigneCommande ligneCommande) {
-        this.ligneCommande = ligneCommande;
+    public void setLigneCommandes(List<LigneCommande> ligneCommandes) {
+        this.ligneCommandes = ligneCommandes;
     }
+
     
     
     
