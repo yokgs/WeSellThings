@@ -189,13 +189,17 @@
                     <div class="card mb-4">
                       <h5 class="card-header">Nouvelle Marque :</h5>
                       <div class="card-body">
-                        <div class="form-floating">
-                          <input type="text" class="form-control" id="floatingInput" placeholder="XXXXXX" aria-describedby="floatingInputHelp">
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" id="nomMarque" placeholder="XXXXXX" aria-describedby="floatingInputHelp">
                           <label for="floatingInput">Nom du Marque</label>
+                          
                           <div id="floatingInputHelp" class="form-text">
                            votre marque doit etre bien connue et certifiée
                           </div>
                         </div>
+                        <button type="button" class="btn btn-primary" id="btnAddMarque">
+                            <span class="tf-icons bx bx-save"></span>&nbsp; Sauvegarder
+                          </button>
                       </div>
                     </div>
                   </div>
@@ -214,6 +218,9 @@
   <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
   <script src="./assets/vendor/js/menu.js"></script>
+  <script src="./js/remplirMarque.js"></script>
+ 
+
   <!-- endbuild -->
 
   <!-- Vendors JS -->

@@ -6,7 +6,7 @@ var nom =  $('#nomCategorie').val();
 var liste =  $('#subCategorie').val();
 
         $('#nomCategorie').val('')
-        $('#nomCategorie').val('choose')
+        $('#subCategorie').val('choose')
         
         alert('La categorie "'+nom+'" est bien ajoutée ! ')
         

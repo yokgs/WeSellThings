@@ -65,4 +65,12 @@ public class Client extends User {
         this.adresse = adresse;
     }
 
+    public List<Commande> getCommandes() {
+        return commandes;
+    }
+
+    public void setCommandes(List<Commande> commandes) {
+        this.commandes = commandes;
+    }
+
 }
