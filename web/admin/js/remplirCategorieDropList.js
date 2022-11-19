@@ -1,13 +1,19 @@
 
 var ajax4 = [
     {
-        data: "choose"
+        data: "Vêtements & Chaussures"
     },
     {
-        data: "shoes"
+        data: "informatique"
     },
     {
-        data: "t-shirts"
+        data: "Téléphone & Tablette"
+    },
+    {
+        data: "Sports & Loisirs"
+    },
+    {
+        data: "Jeux Vidéos & Consoles"
     }
 ]
 
