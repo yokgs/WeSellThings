@@ -9,20 +9,24 @@ window.remplirListeMarque = remplirListeMarque;
 
 
 function remplirListeMarqueArgs(d) {
+
     var html = "";
-    
+
     d.forEach(function (x) {
         html += remplirListeMarque(x.id, x.nom, x.produits);
     });
     $("#tableMarque").html(html);
 }
+function init() {
+    $.ajax({
+        url: '/marque',
+        method: 'GET',
+        success: function (data, textStatus, jqXHR) {
+            remplirListeMarqueArgs(JSON.parse(data));
+        }
+    });
+}
+init();
 
-$.ajax({
-    url: '/marque',
-    method: 'GET',
-    success: function (data, textStatus, jqXHR) {
-        remplirListeMarqueArgs(JSON.parse(data));
-    }
-});
-
+$("#refresh").click(init);
 
