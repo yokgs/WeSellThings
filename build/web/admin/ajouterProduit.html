@@ -217,27 +217,36 @@
                                     <div class="form-floating mb-3">
                                         <div class="input-group input-group-merge">
                                             <span class="input-group-text">$</span>
-                                            <input type="text" class="form-control" placeholder="100" aria-label="Amount (to the nearest dollar)">
+                                            <input id="prixProduit" type="text" class="form-control" placeholder="100" aria-label="Amount (to the nearest dollar)">
                                             <span class="input-group-text">.00</span>
                                           </div>
                                     </div>
                                     <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="uniteProduit" placeholder="XXXXXX"
+                                            aria-describedby="floatingInputHelp">
+                                        <label for="nomProduit">Unité</label>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="file" class="form-control" id="imageProduit" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                        <button class="btn btn-outline-primary" type="button" id="imageBtnProduit">Button</button>
+                                      </div>
+                                    <div class="form-floating mb-3">
                                         <div class="input-group input-group-merge">
                                             <span id="basic-icon-default-message2" class="input-group-text"><i
                                                     class="bx bx-comment"></i></span>
-                                            <textarea id="basic-icon-default-message" class="form-control"
+                                            <textarea id="descriptionProduit" class="form-control"
                                                 placeholder="Une description du produit"
                                                 aria-label="Une description du produit"
                                                 aria-describedby="basic-icon-default-message2"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="nomProduit" placeholder="XXXXXX"
+                                        <input type="text" class="form-control" id="designationProduit" placeholder="XXXXXX"
                                             aria-describedby="floatingInputHelp">
-                                        <label for="nomProduit">Nom du Produit</label>
+                                        <label for="nomProduit">Designation Produit</label>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <select id="categorie" class="form-select form-select-lg">
+                                        <select  id="subCategorie" class="form-select form-select-lg">
 
 
                                         </select>
@@ -268,10 +277,17 @@
                     <script src="./assets/vendor/libs/jquery/jquery.js"></script>
                     <script src="./assets/vendor/libs/popper/popper.js"></script>
                     <script src="./assets/vendor/js/bootstrap.js"></script>
+                    <script src="./js/remplirCategorieDropList.js"></script>
+                    <script src="./js/remplirListeSousCategorie.js"></script>
                     <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
                     <script src="./assets/vendor/js/menu.js"></script>
                     <script src="./js/remplirMarque.js"></script>
+                    <script src="./js/remplirProduit.js"></script>
+                    <script src="./js/remplirCategorieDropList.js"></script>
+                    <script src="./js/remplirListeSousCategorie.js"></script>
+                    <script src="./js/remplirListeMarque.js"></script>
+                    
 
 
                     <!-- endbuild -->
