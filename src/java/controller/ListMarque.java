@@ -34,6 +34,7 @@ public class ListMarque extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("application/json");
         Gson gson = new Gson();
         List<MarqueDTO> mdto = new ArrayList<>();
         ms.findAll().forEach(x -> {

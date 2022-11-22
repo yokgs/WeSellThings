@@ -7,6 +7,7 @@ package entities;
 
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,6 +30,9 @@ public class Categorie {
     private Categorie supCategorie;
     @OneToMany(mappedBy = "supCategorie")
     private List<Categorie> categories;
+    
+    @OneToMany(mappedBy = "categorie", fetch = FetchType.EAGER )
+    private List<Produit> produits;
 
     public Categorie(String nom, Categorie categorie) {
         this.nom = nom;
@@ -60,6 +64,22 @@ public class Categorie {
 
     public void setSupCategorie(Categorie supCategorie) {
         this.supCategorie = supCategorie;
+    }
+
+    public List<Categorie> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Categorie> categories) {
+        this.categories = categories;
+    }
+
+    public List<Produit> getProduits() {
+        return produits;
+    }
+
+    public void setProduits(List<Produit> produits) {
+        this.produits = produits;
     }
 
 }

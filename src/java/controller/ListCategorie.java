@@ -33,10 +33,13 @@ public class ListCategorie extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("application/json");
         Gson gson = new Gson();
         List<CategorieDTO> cdto = new ArrayList<>();
         cs.findAll().forEach(x -> {
-            cdto.add(new CategorieDTO(x));
+            if (x != null) {
+                cdto.add(new CategorieDTO(x));
+            }
         });
         response.getWriter().write(gson.toJson(cdto));
     }
@@ -45,9 +48,14 @@ public class ListCategorie extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String nom = request.getParameter("nom");
+        int id;
+        Categorie categorie = null;
+        try {
+            id = Integer.parseInt(request.getParameter("id"));
+            categorie = cs.findById(id);
+        } catch (NumberFormatException e) {
+        }
 
-        int id = Integer.parseInt(request.getParameter("id"));
-        Categorie categorie = cs.findById(id);
         cs.create(new Categorie(nom, categorie));
         this.doGet(request, response);
     }

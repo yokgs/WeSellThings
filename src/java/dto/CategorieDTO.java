@@ -13,13 +13,14 @@ import entities.Categorie;
  */
 public class CategorieDTO {
 
-    private final int id;
+    private final int id, produits;
     private final String nom, categorie;
 
     public CategorieDTO(Categorie categorie) {
         this.id = categorie.getId();
         this.nom = categorie.getNom();
-        this.categorie = categorie.getSupCategorie().getNom();
+        this.produits = categorie.getProduits().size();
+        this.categorie = categorie.getSupCategorie() == null ? "" : categorie.getSupCategorie().getNom();
     }
 
     public int getId() {

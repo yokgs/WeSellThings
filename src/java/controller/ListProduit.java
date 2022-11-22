@@ -11,7 +11,6 @@ import entities.Categorie;
 import entities.Marque;
 import entities.Produit;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -37,6 +36,7 @@ public class ListProduit extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("application/json");
         Gson gson = new Gson();
         List<ProduitDTO> pdto = new ArrayList<>();
         ps.findAll().forEach(x -> {
