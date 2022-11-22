@@ -22,7 +22,7 @@ function init() {
         url: '/marque',
         method: 'GET',
         success: function (data, textStatus, jqXHR) {
-            remplirListeMarqueArgs(JSON.parse(data));
+            remplirListeMarqueArgs(data);
         }
     });
 }
