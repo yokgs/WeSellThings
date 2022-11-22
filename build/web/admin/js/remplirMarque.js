@@ -11,7 +11,7 @@ $(document).ready(function () {
                 nom: nom
             },
             success: function (data, textStatus, jqXHR) {
-                alert('La marque "' + nom + '" est bien ajoutée ! ');
+                alert('La marque "' + nom + '" est bien ajoutéeeee ! ');
                 $('#nomMarque').val('');
             }
         });

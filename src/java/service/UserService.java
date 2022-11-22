@@ -126,8 +126,8 @@ public class UserService implements IDao<User> {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
-            user = (User) (session.createQuery("select u from User u where u.email = :email")
-                    .setParameter("email", email).list()).get(0);
+            user = (User) session.createQuery("select u from User u where u.email = :email")
+                    .setParameter("email", email).uniqueResult();
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) {

@@ -7,6 +7,7 @@ package controller;
 
 import com.google.gson.Gson;
 import entities.Admin;
+import entities.Client;
 import entities.User;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -15,7 +16,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.mindrot.jbcrypt.BCrypt;
 import service.AdminService;
+import service.ClientService;
 import service.PasswordService;
 import service.UserService;
 
@@ -23,11 +26,11 @@ import service.UserService;
  *
  * @author user
  */
-@WebServlet(name = "LoginController", urlPatterns = {"/login"})
-public class LoginController extends HttpServlet {
+@WebServlet(name = "SignUpController", urlPatterns = {"/signup"})
+public class SignUpController extends HttpServlet {
 
+    private ClientService cs = new ClientService();
     private UserService us = new UserService();
-    private AdminService as = new AdminService();
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -40,7 +43,7 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        doPost(request, response);
     }
 
     /**
@@ -54,23 +57,27 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("ssssssssss");
 
-        User user = null;
+        String email = request.getParameter("email");
 
-        String email = request.getParameter("email"),
-                password = request.getParameter("password");
-
-        user = us.findByEmail(email);
-        if (user != null) {
-            if (PasswordService.verify(password, user.getPassword())) {
-                HttpSession session = request.getSession();
-                session.setAttribute("user-o", user);
-                session.setAttribute("user-r", as.findById(user.getId()) != null ? "admin" : "client");
-                response.sendRedirect("index.html");
+        User user = us.findByEmail(email);
+        System.out.println(user);
+        if (user == null) {
+            String password = request.getParameter("password"),
+                    confirm = request.getParameter("confirm"),
+                    nom = request.getParameter("nom"),
+                    prenom = request.getParameter("prenom"),
+                    tel = request.getParameter("tel"),
+                    adresse = request.getParameter("address");
+            System.out.println(confirm);
+            if (password.equals(confirm)) {
+                cs.create(new Client(nom, prenom, tel, adresse, email, PasswordService.hash(password)));
             }
+            response.sendRedirect("client/connexion.html");
+        } else {
+            response.sendRedirect("client/connexion.html");
         }
-
-        response.sendRedirect("connexion.html");
 
     }
 
