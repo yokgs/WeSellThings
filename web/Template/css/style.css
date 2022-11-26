@@ -15497,8 +15497,8 @@ button.bg-dark:focus {
   margin-top: 0.5rem !important;
 }
 
-.mr-2, .template-demo > .btn-group,
-.template-demo > .btn-group-vertical, .template-demo > .dropdown,
+.mr-2, .template- > .btn-group,
+.template- > .btn-group-vertical, .template- > .dropdown,
 .mx-2 {
   margin-right: 0.5rem !important;
 }
@@ -15517,12 +15517,12 @@ button.bg-dark:focus {
   margin: 1rem !important;
 }
 
-.mt-3, .template-demo > .btn, .template-demo > .btn-toolbar,
+.mt-3, .template- > .btn, .template- > .btn-toolbar,
 .my-3 {
   margin-top: 1rem !important;
 }
 
-.mr-3, .template-demo > .btn, .template-demo > .btn-toolbar,
+.mr-3, .template- > .btn, .template- > .btn-toolbar,
 .mx-3 {
   margin-right: 1rem !important;
 }

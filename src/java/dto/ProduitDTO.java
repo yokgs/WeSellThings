@@ -14,7 +14,8 @@ import entities.Produit;
 public class ProduitDTO {
 
     private final int id;
-    private final String nom, designation, image, description;
+    private final String nom, designation, description;
+    private final byte[] image;
     private final double prix;
     private final int unite;
     private final String categorie;
@@ -46,7 +47,7 @@ public class ProduitDTO {
         return designation;
     }
 
-    public String getImage() {
+    public byte[] getImage() {
         return image;
     }
 

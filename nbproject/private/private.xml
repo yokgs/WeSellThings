@@ -3,13 +3,43 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/WeSellThings/src/java/service/UserService.java</file>
-            <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/WeSellThings/web/client/shop.jsp</file>
-            <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/WeSellThings/web/client/js/remplirProduit.js</file>
-            <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/WeSellThings/src/java/controller/LoginController.java</file>
-            <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/WeSellThings/src/java/test/Test1.java</file>
-            <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/WeSellThings/web/client/indexClient.jsp</file>
-            <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/WeSellThings/src/java/controller/LogoffController.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/web/admin/produits.html</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/web/admin/ajouterProduit.html</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/web/admin/marques.html</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/dto/CategorieDTO.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/entities/Commande.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/controller/ListCategorie.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/util/HibernateUtil.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/web/admin/js/remplirMarque.js</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/hibernate.cfg.xml</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/dto/CommandeDTO.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/controller/ListProduit.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/controller/SignUpController.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/controller/ListFacture.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/web/admin/js/remplirListeMarque.js</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/web/client/inscription.html</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/controller/UpdateMarque.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/entities/Client.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/dto/ClientDTO.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/test/Test1.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/service/UserService.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/controller/UpdateCommande.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/controller/CheckSession.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/controller/UpdateFacture.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/entities/User.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/controller/UpdateCategorie.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/controller/ListMarque.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/entities/Marque.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/web/admin/ajouterMarque.html</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/web/admin/js/remplirProduit.js</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/entities/Categorie.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/controller/UpdateProduit.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/dto/ProduitDTO.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/web/client/connexion.html</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/controller/ListCommande.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/entities/Produit.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/controller/LoginController.java</file>
+            <file>file:/C:/Users/hamza%20mamon/Documents/NetBeansProjects/WeSellThings/src/java/entities/LigneCommande.java</file>
         </group>
     </open-files>
 </project-private>

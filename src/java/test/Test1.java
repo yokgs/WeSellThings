@@ -15,8 +15,7 @@ import util.HibernateUtil;
  */
 public class Test1 {
     public static void main(String[] args) {
-        //HibernateUtil.getSessionFactory().openSession();
-        UserService us = new UserService();
-        System.out.println(us.findByEmail("khjm@gmail.com").getEmail());
+        ///HibernateUtil.getSessionFactory().openSession();
+        System.out.println((new UserService()).findByEmail("hamza"));
     }
 }

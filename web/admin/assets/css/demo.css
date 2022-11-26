@@ -1,19 +1,19 @@
 /*
-* demo.css
-* File include item demo only specific css only
+* .css
+* File include item  only specific css only
 ******************************************************************************/
 
-.menu .app-brand.demo {
+.menu .app-brand. {
   height: 64px;
   margin-top: 12px;
 }
 
-.app-brand-logo.demo svg {
+.app-brand-logo. svg {
   width: 22px;
   height: 38px;
 }
 
-.app-brand-text.demo {
+.app-brand-text. {
   font-size: 1.75rem;
   letter-spacing: -0.5px;
   text-transform: lowercase;
@@ -38,36 +38,36 @@
 * Content
 ******************************************************************************/
 
-.demo-blocks > * {
+.-blocks > * {
   display: block !important;
 }
 
-.demo-inline-spacing > * {
+.-inline-spacing > * {
   margin: 1rem 0.375rem 0 0 !important;
 }
 
-/* ? .demo-vertical-spacing class is used to have vertical margins between elements. To remove margin-top from the first-child, use .demo-only-element class with .demo-vertical-spacing class. For example, we have used this class in forms-input-groups.html file. */
-.demo-vertical-spacing > * {
+/* ? .-vertical-spacing class is used to have vertical margins between elements. To remove margin-top from the first-child, use .-only-element class with .-vertical-spacing class. For example, we have used this class in forms-input-groups.html file. */
+.-vertical-spacing > * {
   margin-top: 1rem !important;
   margin-bottom: 0 !important;
 }
-.demo-vertical-spacing.demo-only-element > :first-child {
+.-vertical-spacing.-only-element > :first-child {
   margin-top: 0 !important;
 }
 
-.demo-vertical-spacing-lg > * {
+.-vertical-spacing-lg > * {
   margin-top: 1.875rem !important;
   margin-bottom: 0 !important;
 }
-.demo-vertical-spacing-lg.demo-only-element > :first-child {
+.-vertical-spacing-lg.-only-element > :first-child {
   margin-top: 0 !important;
 }
 
-.demo-vertical-spacing-xl > * {
+.-vertical-spacing-xl > * {
   margin-top: 5rem !important;
   margin-bottom: 0 !important;
 }
-.demo-vertical-spacing-xl.demo-only-element > :first-child {
+.-vertical-spacing-xl.-only-element > :first-child {
   margin-top: 0 !important;
 }
 
@@ -82,10 +82,10 @@
 }
 
 /*
-* Layout demo
+* Layout 
 ******************************************************************************/
 
-.layout-demo-wrapper {
+.layout--wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -98,10 +98,10 @@
   flex-direction: column;
   margin-top: 1rem;
 }
-.layout-demo-placeholder img {
+.layout--placeholder img {
   width: 900px;
 }
-.layout-demo-info {
+.layout--info {
   text-align: center;
   margin-top: 1rem;
 }

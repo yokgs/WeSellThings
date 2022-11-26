@@ -11,6 +11,7 @@ import entities.Categorie;
 import entities.Marque;
 import entities.Produit;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -18,6 +19,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import service.CategorieService;
 import service.MarqueService;
 import service.ProduitService;
@@ -48,16 +50,37 @@ public class ListProduit extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nom = request.getParameter("nom"),
-                designation = request.getParameter("designation"),
-                image = request.getParameter("image"),
-                description = request.getParameter("description");
-        double prix = Double.parseDouble(request.getParameter("prix"));
-        int unite = Integer.parseInt(request.getParameter("unite"));
-        Categorie categorie = cs.findById(Integer.parseInt(request.getParameter("categorie")));
-        Marque marque = ms.findById(Integer.parseInt(request.getParameter("marque")));
+        try {
+            String nom = request.getParameter("nom"),
+                    designation = request.getParameter("designation"),
+                    description = request.getParameter("description");
+            System.out.println(request.getParameter("prix"));
+            double prix = Double.parseDouble(request.getParameter("prix"));
+            int unite = Integer.parseInt(request.getParameter("unite"));
 
-        ps.create(new Produit(nom, designation, image, description, prix, unite, categorie, marque));
+            InputStream inputStream = null; // input stream of the upload file
+            byte[] image = new byte[0];
+            // obtains the upload file part in this multipart request
+            Part filePart = request.getPart("image");
+            if (filePart != null) {
+                // prints out some information for debugging
+                System.out.println(filePart.getName());
+                System.out.println(filePart.getSize());
+                System.out.println(filePart.getContentType());
+
+                // obtains input stream of the upload file
+                image = new byte[(int) filePart.getSize()];
+                inputStream = filePart.getInputStream();
+                inputStream.read(image);
+            }
+
+            Categorie categorie = cs.findById(Integer.parseInt(request.getParameter("categorie")));
+            Marque marque = ms.findById(Integer.parseInt(request.getParameter("marque")));
+
+            ps.create(new Produit(nom, designation, image, description, prix, unite, categorie, marque));
+        } catch (NumberFormatException e) {
+            System.out.println(e);
+        }
         this.doGet(request, response);
     }
 
