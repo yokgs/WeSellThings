@@ -3,7 +3,7 @@ Purple Admin is a free responsive admin template built with Bootstrap 4. The tem
 
 Purple Admin is packed with all the features that fit your needs but not cramped with components you would not even use. It is an excellent fit to build admin panels, e-commerce systems,  project management systems, CMS or CRM.
 
-<a href="http://www.bootstrapdash.com/demo/purple-admin-free" target="_blank"><img src="screenshot.jpg"></a>
+<a href="http://www.bootstrapdash.com//purple-admin-free" target="_blank"><img src="screenshot.jpg"></a>
 
 Although the template has a design like none other, it is easily customizable to suit your requirements. Purple Admin comes with a clean and well-commented code that makes it easy to work with the template. Thus making it an ideal pick for jump starting your project.
 
