@@ -1,0 +1,30 @@
+SMAP
+indexClient_jsp.java
+JSP
+*S JSP
+*F
++ 0 indexClient.jsp
+client/indexClient.jsp
++ 1 header.jsp
+client/header.jsp
++ 2 footer.jsp
+client/footer.jsp
+*L
+5,37:53
+5#1,19:90
+23:12
+23,2:109
+25,10:112
+34,2:122
+36:124,3
+37,2:127
+39,4:130
+42,2:134
+44:136,3
+45,3:139
+48:142,3
+49,131:145
+41#0,291:275
+5#2,75:566
+331#0,32:640
+*E

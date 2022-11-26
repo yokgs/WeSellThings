@@ -7,6 +7,7 @@ package service;
 
 import dao.IDao;
 import entities.User;
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -123,13 +124,15 @@ public class UserService implements IDao<User> {
         User user = null;
         Session session = null;
         Transaction tx = null;
+        User l = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
-            user = (User) session.createQuery("select u from User u where u.email = :email")
+            l = (User) session.createQuery("select u from User u where u.email = :email")
                     .setParameter("email", email).uniqueResult();
+            user = l;
             tx.commit();
-        } catch (HibernateException e) {
+        } catch (Exception e) {
             if (tx != null) {
                 tx.rollback();
             }

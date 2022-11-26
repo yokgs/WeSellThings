@@ -66,11 +66,15 @@ public class LoginController extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("user-o", user);
                 session.setAttribute("user-r", as.findById(user.getId()) != null ? "admin" : "client");
-                response.sendRedirect("index.html");
+                response.sendRedirect("./client/indexClient.jsp");
+            }
+            else{
+                response.sendRedirect("./client/connexion.html?incorrect password");
             }
         }
-
-        response.sendRedirect("connexion.html");
+        else{
+        response.sendRedirect("./client/connexion.html");
+        }
 
     }
 

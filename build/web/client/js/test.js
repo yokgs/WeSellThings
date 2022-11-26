@@ -2,78 +2,75 @@
 
 var ajax = [
     {
-        item: "saad",
-        description: "derri nadi"
+        item: "BAOUCHOUCH",
+        description: "SAAD"
     },
     {
-        item: "mamon",
-        description: "ki neem"
+        item: "AIT ELMAMOUN",
+        description: "HAMZA"
     },
     {
-        item: "lachg   ar",
-        description: "boss"
+        item: "SLILA",
+        description: "YAZID"
     },
     {
-        item: "yazid",
-        description: "boss"
+        item: "BAOUCHOUCH",
+        description: "SAAD"
     },
     {
-        item: "lachgar",
-        description: "boss"
+        item: "AIT ELMAMOUN",
+        description: "HAMZA"
     },
     {
-        item: "yazid",
-        description: "boss"
+        item: "SLILA",
+        description: "YAZID"
     },
     {
-        item: "lachgar",
-        description: "boss"
+        item: "BAOUCHOUCH",
+        description: "SAAD"
     },
     {
-        item: "yazid",
-        description: "boss"
+        item: "AIT ELMAMOUN",
+        description: "HAMZA"
     },
     {
-        item: "lachgar",
-        description: "boss"
+        item: "SLILA",
+        description: "YAZID"
     },
     {
-        item: "yazid",
-        description: "boss"
+        item: "BAOUCHOUCH",
+        description: "SAAD"
     },
     {
-        item: "brioual ",
-        description: "bataatan"
+        item: "AIT ELMAMOUN",
+        description: "HAMZA"
     }
 ]
 
 var ajax2 = [
     {
-        titre: "T-shirt nadi"
+        titre: "airpods"
     },
     {
-        titre: "sbbat wa3r "
+        titre: "cap"
     },
     {
-        titre: "sbrdoukha"
+        titre: "T-shirt"
     },
     {
-        titre: "komama"
+        titre: "hoodie"
     },
     {
-        titre: "taggiya"
+        titre: "pant"
     }
 ]
 var ajax3 = [
     {
         titre: "The Latest Collection",
         discount:"99% discount",
-        img:'images/openshoe.jpg'
+        img:'images/glasses1.jpg'
     }
 ]
-
-
-
 
 function remplirTop(data) {
     var html = "",
@@ -91,7 +88,7 @@ function remplirTrending(data) {
     data.forEach(function (x, i) {
         let id = 'y' + i;
         html += remplirNumTitreProduit(i+1, x.titre, id, i==0);
-        img += remplirImgProduit('images/sbrdoukha.jpg', 'images/br9l.jfif','images/sndalatuellement.jfif', 'images/sbat.jpg', id, i==0);
+        img += remplirImgProduit('images/ecouteurs.webp', 'images/taggiyat.jpg','images/cap.webp', 'images/ensemble.webp', id, i==0);
 
     });
     $("#trendingNumTitle").html(html);
@@ -104,9 +101,13 @@ function remplirDiscountargs(data) {
     });
     $("#discount").html(html);
 }
+
+
 remplirTop(ajax);
 remplirTrending(ajax2);
 remplirDiscountargs(ajax3);
+
+
 
 
 

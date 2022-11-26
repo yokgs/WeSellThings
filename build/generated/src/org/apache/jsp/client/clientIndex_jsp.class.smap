@@ -1,0 +1,16 @@
+SMAP
+clientIndex_jsp.java
+JSP
+*S JSP
+*F
++ 0 clientIndex.jsp
+client/clientIndex.jsp
+*L
+5,74:48
+78:13
+78,2:122
+80,7:125
+86:132
+87:133,3
+88,160:136
+*E

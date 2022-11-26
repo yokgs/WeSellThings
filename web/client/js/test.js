@@ -72,9 +72,6 @@ var ajax3 = [
     }
 ]
 
-
-
-
 function remplirTop(data) {
     var html = "",
         indicator = "";
@@ -104,9 +101,13 @@ function remplirDiscountargs(data) {
     });
     $("#discount").html(html);
 }
+
+
 remplirTop(ajax);
 remplirTrending(ajax2);
 remplirDiscountargs(ajax3);
+
+
 
 
 
