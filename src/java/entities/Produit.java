@@ -34,14 +34,7 @@ public class Produit {
     private Categorie categorie;
     @ManyToOne
     private Marque marque;
-<<<<<<< HEAD
-    
-   
     @OneToMany(mappedBy = "produit",fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-=======
-
-    @OneToMany(mappedBy = "produit")
->>>>>>> 316f721e81afb11a8dd6a9d5590e401a87614cf6
     private List<LigneCommande> ligneCommandes;
 
     public Produit() {
