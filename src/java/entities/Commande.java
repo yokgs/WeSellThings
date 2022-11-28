@@ -88,5 +88,13 @@ public class Commande implements Serializable {
         this.ligneCommandes = ligneCommandes;
     }
 
+    public CommandeEtat getEtat() {
+        return etat;
+    }
+
+    public void setEtat(CommandeEtat etat) {
+        this.etat = etat;
+    }
+
 
 }

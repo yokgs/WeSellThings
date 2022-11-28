@@ -7,6 +7,7 @@ package dto;
 
 import entities.Client;
 import entities.Commande;
+import entities.CommandeEtatConverter;
 
 import java.util.Date;
 
@@ -18,18 +19,24 @@ public class CommandeDTO {
     private final int id;
     private final Date date;
     private final int clientId;
-    private final String client;
+    private final String client, etat;
     private double prix;
     private int produits;
 
     public CommandeDTO(Commande commande) {
-        Client client = commande.getClient();
-        this.client = client == null ? "" : client.getNom();
-        this.clientId = client == null ? 1 : client.getId();
+        Client c = commande.getClient();
+        this.client = c == null ? "" : c.getNom();
+        this.clientId = c == null ? 1 : c.getId();
         this.date = commande.getDate();
         this.id = commande.getId();
         this.prix = 0;
         this.produits = 0;
+        this.etat = (new String[]{
+            "Annulée",
+            "En cours",
+            "Approvée",
+            "Livrée"
+        })[(new CommandeEtatConverter()).convertToDatabaseColumn(commande.getEtat())];
 
         commande.getLigneCommandes().forEach(x -> {
             prix += x.getPrixVente();
