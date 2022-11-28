@@ -4,6 +4,8 @@
     Author     : lenovo
 --%>
 
+<%@page import="entities.Produit"%>
+<%@page import="service.ProduitService"%>
 <%@page import="entities.LigneCommande"%>
 <%@page import="entities.Commande"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -70,6 +72,25 @@
                                 <th>Remove</th>
                             </tr>
                         </thead>
+                        <%
+                        ProduitService ps = new ProduitService();
+                        int id = Integer.parseInt(request.getParameter("id"));
+                        int quantite = Integer.parseInt(request.getParameter("quantite"));
+                        Produit p = ps.findById(id);
+                        String nom =p.getNom();
+                        String description =p.getDescription();
+                        String designation =p.getDesignation();
+                       // String image =p.getImage();
+                        String image = "img/notyet.jpg";
+                        double prixUni = p.getPrix();
+                        int unite =p.getUnite();
+                        double prix = quantite*prixUni;
+                        double shipping = 10;
+                        double prixTotale = prix+shipping;
+                        
+                        %>
+                        
+                        
                         <tbody class="align-middle">
                             <% Commande commande = (Commande) session.getAttribute("cart");
                                 for (LigneCommande lc : commande.getLigneCommandes()) {
@@ -113,17 +134,17 @@
                         <div class="border-bottom pb-2">
                             <div class="d-flex justify-content-between mb-3">
                                 <h6>Subtotal</h6>
-                                <h6>$150</h6>
+                                <h6><%=prix%>$</h6>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <h6 class="font-weight-medium">Shipping</h6>
-                                <h6 class="font-weight-medium">$10</h6>
+                                <h6 class="font-weight-medium"><%=shipping%>$</h6>
                             </div>
                         </div>
                         <div class="pt-2">
                             <div class="d-flex justify-content-between mt-2">
                                 <h5>Total</h5>
-                                <h5>$160</h5>
+                                <h5><%=prixTotale%>$</h5>
                             </div>
                             <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">Proceed To Checkout</button>
                         </div>

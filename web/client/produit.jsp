@@ -35,6 +35,9 @@
 
         <!-- Customized Bootstrap Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
+        <link href="css/poUp.css" rel="stylesheet">
+
+
     </head>
 
     <body>
@@ -61,7 +64,25 @@
 
         <!-- Shop Detail Start -->
 
+
         <%
+            ProduitService ps = new ProduitService();
+            int id = Integer.parseInt(request.getParameter("id"));
+            Produit p = ps.findById(id);
+            String nom = p.getNom();
+            String description = p.getDescription();
+            String designation = p.getDesignation();
+            // String image =p.getImage();
+            String image = "img/notyet.jpg";
+            double prix = p.getPrix();
+            int unite = p.getUnite();
+            Categorie categorie_id = p.getCategorie();
+            Marque marque = p.getMarque();
+            int nbrVotes = 100;
+            double prePrix = prix + 40;
+
+        %>
+
             ProduitService ps = new ProduitService();
             int id = Integer.parseInt(request.getParameter("id"));
             Produit p = ps.findById(id);
@@ -184,8 +205,26 @@
                                 String url = "../cart?id=" + id + "&quantite=1";
 
                             %>
-                            <a class="btn btn-primary px-3" id="url" href=<%=url%>><i class="fa fa-shopping-cart mr-1"></i> Add To
-                                Cart</a>
+                            <div class="popup">
+                                <div class="popup" id="popup-1">
+                                    <div class="content">
+                                        <div class="close-btn" onclick="togglePopup()">
+                                            ×</div>
+                                        <div>
+                                            
+                                            <p class="h6"> <img src="img/success2.png" alt="" style="width: 30px;">  Un nouvel article a été ajouté à votre panier. Vous avez maintenant X articles dans votre panier.
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <a class="btn btn-primary" id="url" href=<%=url%>>Voir le panier</a>
+                                            <a class="btn btn-primary" onclick="togglePopup()">Continuer vos achats</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="btn btn-primary px-3" onclick="togglePopup()"><i class="fa fa-shopping-cart mr-1"></i> Add To Cart</a>
+                            </div>
+
+
                         </div>
                         <div class="d-flex pt-2">
                             <strong class="text-dark mr-2">Share on:</strong>
@@ -477,6 +516,7 @@
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
         <script src="js/url.provider.js"></script>
+        <script src="js/popUp.js"></script>
     </body>
 
 </html>

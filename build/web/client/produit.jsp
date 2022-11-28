@@ -35,6 +35,9 @@
 
         <!-- Customized Bootstrap Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
+        <link href="css/poUp.css" rel="stylesheet">
+
+
     </head>
 
     <body>
@@ -176,16 +179,34 @@
                                     </button>
                                 </div>
                             </div>
-
+                            
                             <%
-                                //String size = request.getParameter("size");
-                                //String quantite = (String)request.getAttribute("quantite");
-                                //int quantite = Integer.parseInt(request.getParameter("quantite"));
-                                String url = "../cart?id=" + id + "&quantite=1";
-
+                            //String size = request.getParameter("size");
+                            //String quantite = (String)request.getAttribute("quantite");
+                            //int quantite = Integer.parseInt(request.getParameter("quantite"));
+                            String url = "cart.jsp?id="+id+"&quantite=1";
+                            
                             %>
-                            <a class="btn btn-primary px-3" id="url" href=<%=url%>><i class="fa fa-shopping-cart mr-1"></i> Add To
-                                Cart</a>
+                            <div class="popup">
+                                <div class="popup" id="popup-1">
+                                    <div class="content">
+                                        <div class="close-btn" onclick="togglePopup()">
+                                            ×</div>
+                                        <div>
+                                            
+                                            <p class="h6"> <img src="img/success2.png" alt="" style="width: 30px;">  Un nouvel article a été ajouté à votre panier. Vous avez maintenant X articles dans votre panier.
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <a class="btn btn-primary" id="url" href=<%=url%>>Voir le panier</a>
+                                            <a class="btn btn-primary" onclick="togglePopup()">Continuer vos achats</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="btn btn-primary px-3" onclick="togglePopup()"><i class="fa fa-shopping-cart mr-1"></i> Add To Cart</a>
+                            </div>
+
+
                         </div>
                         <div class="d-flex pt-2">
                             <strong class="text-dark mr-2">Share on:</strong>
@@ -477,6 +498,7 @@
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
         <script src="js/url.provider.js"></script>
+        <script src="js/popUp.js"></script>
     </body>
 
 </html>
