@@ -32,6 +32,13 @@ public class LigneCommande {
     public LigneCommande() {
     }
 
+    public LigneCommande(double prixVente, int quantité, Produit produit, Commande commande) {
+        this.prixVente = prixVente;
+        this.quantité = quantité;
+        this.produit = produit;
+        this.commande = commande;
+    }
+
     public LigneCommandePK getCommandePK() {
         return commandePK;
     }

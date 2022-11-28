@@ -7,6 +7,8 @@ package controller;
 
 import com.google.gson.Gson;
 import entities.Admin;
+import entities.Client;
+import entities.Commande;
 import entities.User;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -66,6 +68,9 @@ public class LoginController extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("user-o", user);
                 session.setAttribute("user-r", as.findById(user.getId()) != null ? "admin" : "client");
+                if(user instanceof Client){
+                    session.setAttribute("cart", new Commande((Client) user));
+                }
                 response.sendRedirect("./client/indexClient.jsp");
             }
             else{
