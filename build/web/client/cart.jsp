@@ -4,6 +4,8 @@
     Author     : lenovo
 --%>
 
+<%@page import="entities.LigneCommande"%>
+<%@page import="entities.Commande"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,9 +71,12 @@
                             </tr>
                         </thead>
                         <tbody class="align-middle">
+                            <% Commande commande = (Commande) session.getAttribute("cart");
+                                for (LigneCommande lc : commande.getLigneCommandes()) {
+                            %>
                             <tr>
-                                <td class="align-middle"><img src="img/product-1.jpg" alt="" style="width: 50px;"> Product Name</td>
-                                <td class="align-middle">$150</td>
+                                <td class="align-middle"><img src="img/product-1.jpg" alt="" style="width: 50px;"> <%= lc.getProduit().getNom()%></td>
+                                <td class="align-middle"> <%= lc.getProduit().getPrix()%></td>
                                 <td class="align-middle">
                                     <div class="input-group quantity mx-auto" style="width: 100px;">
                                         <div class="input-group-btn">
@@ -79,7 +84,7 @@
                                                 <i class="fa fa-minus"></i>
                                             </button>
                                         </div>
-                                        <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
+                                        <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value=" <%= lc.getQuantité()%>">
                                         <div class="input-group-btn">
                                             <button class="btn btn-sm btn-primary btn-plus">
                                                 <i class="fa fa-plus"></i>
@@ -87,9 +92,10 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="align-middle">$150</td>
+                                <td class="align-middle"> <%= lc.getPrixVente()%></td>
                                 <td class="align-middle"><button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button></td>
                             </tr>
+                            <% }%>
                         </tbody>
                     </table>
                 </div>

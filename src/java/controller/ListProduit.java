@@ -10,6 +10,7 @@ import dto.ProduitDTO;
 import entities.Categorie;
 import entities.Marque;
 import entities.Produit;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -20,12 +21,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+
 import service.CategorieService;
 import service.MarqueService;
 import service.ProduitService;
 
 /**
- *
  * @author user
  */
 @WebServlet(name = "ListProduit", urlPatterns = {"/produit"})

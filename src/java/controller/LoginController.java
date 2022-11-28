@@ -10,6 +10,7 @@ import entities.Admin;
 import entities.Client;
 import entities.Commande;
 import entities.User;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,12 +18,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import service.AdminService;
 import service.PasswordService;
 import service.UserService;
 
 /**
- *
  * @author user
  */
 @WebServlet(name = "LoginController", urlPatterns = {"/login"})
@@ -34,10 +35,10 @@ public class LoginController extends HttpServlet {
     /**
      * Handles the HTTP <code>GET</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -48,10 +49,10 @@ public class LoginController extends HttpServlet {
     /**
      * Handles the HTTP <code>POST</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -68,17 +69,15 @@ public class LoginController extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("user-o", user);
                 session.setAttribute("user-r", as.findById(user.getId()) != null ? "admin" : "client");
-                if(user instanceof Client){
+                if (user instanceof Client) {
                     session.setAttribute("cart", new Commande((Client) user));
                 }
                 response.sendRedirect("./client/indexClient.jsp");
-            }
-            else{
+            } else {
                 response.sendRedirect("./client/connexion.html?incorrect password");
             }
-        }
-        else{
-        response.sendRedirect("./client/connexion.html");
+        } else {
+            response.sendRedirect("./client/connexion.html");
         }
 
     }

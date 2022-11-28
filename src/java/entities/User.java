@@ -14,7 +14,6 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
 /**
- *
  * @author user
  */
 @Entity
@@ -23,7 +22,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected int id;
-    
+
     protected String email, password;
 
     public User() {
@@ -57,5 +56,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
 }

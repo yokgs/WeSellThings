@@ -14,7 +14,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 /**
- *
  * @author user
  */
 @Entity
@@ -23,10 +22,10 @@ public class Marque {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nom;
-    
+
     @OneToMany(mappedBy = "marque", fetch = FetchType.EAGER)
     private List<Produit> produits;
-    
+
     public Marque() {
     }
 
@@ -57,6 +56,6 @@ public class Marque {
     public void setProduits(List<Produit> produits) {
         this.produits = produits;
     }
-    
-    
+
+
 }

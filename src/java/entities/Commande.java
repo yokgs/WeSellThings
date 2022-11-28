@@ -10,7 +10,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +24,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- *
  * @author Lachgar
  */
 @Entity
@@ -39,6 +41,10 @@ public class Commande implements Serializable {
 
     @OneToMany(mappedBy = "commande", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private List<LigneCommande> ligneCommandes;
+
+    @Enumerated(EnumType.ORDINAL)
+    @Convert(converter = CommandeEtatConverter.class)
+    private CommandeEtat etat;
 
     public Commande() {
     }
@@ -80,5 +86,6 @@ public class Commande implements Serializable {
     public void setLigneCommandes(List<LigneCommande> ligneCommandes) {
         this.ligneCommandes = ligneCommandes;
     }
+
 
 }

@@ -11,17 +11,16 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
 /**
- *
  * @author Lachgar
  */
 @Entity
 public class Client extends User {
 
     private String nom, prenom, telephone, adresse;
-    
+
     @OneToMany(mappedBy = "client")
     private List<Commande> commandes;
-    
+
     public Client() {
     }
 

@@ -6,15 +6,17 @@
 package service;
 
 import dao.IDao;
+import entities.Client;
 import entities.Commande;
+
 import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.HibernateUtil;
 
 /**
- *
  * @author user
  */
 public class CommandeService implements IDao<Commande> {
@@ -118,5 +120,4 @@ public class CommandeService implements IDao<Commande> {
         }
         return commandes;
     }
-
 }

@@ -14,11 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
  * @author yazid slila
  */
 @WebServlet(name = "ListFacture", urlPatterns = {"/facture"})
 public class ListFacture extends HttpServlet {
 
-    
+
 }

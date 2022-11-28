@@ -8,7 +8,6 @@ package dto;
 import entities.Marque;
 
 /**
- *
  * @author user
  */
 public class MarqueDTO {
@@ -34,6 +33,6 @@ public class MarqueDTO {
     public int getProduits() {
         return produits;
     }
-    
-    
+
+
 }

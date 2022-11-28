@@ -7,10 +7,10 @@ package dto;
 
 import entities.Client;
 import entities.Commande;
+
 import java.util.Date;
 
 /**
- *
  * @author yazid slila
  */
 public class CommandeDTO {
@@ -30,7 +30,7 @@ public class CommandeDTO {
         this.id = commande.getId();
         this.prix = 0;
         this.produits = 0;
-        
+
         commande.getLigneCommandes().forEach(x -> {
             prix += x.getPrixVente();
             produits += x.getQuantité();

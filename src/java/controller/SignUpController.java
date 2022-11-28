@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import entities.Admin;
 import entities.Client;
 import entities.User;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.mindrot.jbcrypt.BCrypt;
 import service.AdminService;
 import service.ClientService;
@@ -23,7 +25,6 @@ import service.PasswordService;
 import service.UserService;
 
 /**
- *
  * @author user
  */
 @WebServlet(name = "SignUpController", urlPatterns = {"/signup"})
@@ -35,10 +36,10 @@ public class SignUpController extends HttpServlet {
     /**
      * Handles the HTTP <code>GET</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -49,10 +50,10 @@ public class SignUpController extends HttpServlet {
     /**
      * Handles the HTTP <code>POST</code> method.
      *
-     * @param request servlet request
+     * @param request  servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @throws IOException      if an I/O error occurs
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

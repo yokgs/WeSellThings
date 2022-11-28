@@ -10,7 +10,6 @@ import service.UserService;
 import util.HibernateUtil;
 
 /**
- *
  * @author a
  */
 public class Test1 {

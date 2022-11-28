@@ -8,6 +8,7 @@ package controller;
 import com.google.gson.Gson;
 import dto.MarqueDTO;
 import entities.Marque;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -17,17 +18,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import service.MarqueService;
 
 /**
- *
  * @author yazid slila
  */
 @WebServlet(name = "UpdateMarque", urlPatterns = {"/marque/update"})
 public class UpdateMarque extends HttpServlet {
-    
+
     private MarqueService ms = new MarqueService();
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -36,7 +37,7 @@ public class UpdateMarque extends HttpServlet {
         ms.delete(marque);
         response.sendRedirect("/marque");
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -47,10 +48,10 @@ public class UpdateMarque extends HttpServlet {
         ms.update(marque);
         response.sendRedirect("/marque");
     }
-    
+
     @Override
     public String getServletInfo() {
         return "Short description";
     }
-    
+
 }

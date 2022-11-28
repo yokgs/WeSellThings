@@ -8,7 +8,6 @@ package dto;
 import entities.Categorie;
 
 /**
- *
  * @author user
  */
 public class CategorieDTO {
