@@ -64,7 +64,25 @@
 
         <!-- Shop Detail Start -->
 
+
         <%
+            ProduitService ps = new ProduitService();
+            int id = Integer.parseInt(request.getParameter("id"));
+            Produit p = ps.findById(id);
+            String nom = p.getNom();
+            String description = p.getDescription();
+            String designation = p.getDesignation();
+            // String image =p.getImage();
+            String image = "img/notyet.jpg";
+            double prix = p.getPrix();
+            int unite = p.getUnite();
+            Categorie categorie_id = p.getCategorie();
+            Marque marque = p.getMarque();
+            int nbrVotes = 100;
+            double prePrix = prix + 40;
+
+        %>
+
             ProduitService ps = new ProduitService();
             int id = Integer.parseInt(request.getParameter("id"));
             Produit p = ps.findById(id);
@@ -179,13 +197,13 @@
                                     </button>
                                 </div>
                             </div>
-                            
+
                             <%
-                            //String size = request.getParameter("size");
-                            //String quantite = (String)request.getAttribute("quantite");
-                            //int quantite = Integer.parseInt(request.getParameter("quantite"));
-                            String url = "cart.jsp?id="+id+"&quantite=1";
-                            
+                                //String size = request.getParameter("size");
+                                //String quantite = (String)request.getAttribute("quantite");
+                                //int quantite = Integer.parseInt(request.getParameter("quantite"));
+                                String url = "../cart?id=" + id + "&quantite=1";
+
                             %>
                             <div class="popup">
                                 <div class="popup" id="popup-1">
