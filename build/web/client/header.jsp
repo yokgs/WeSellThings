@@ -4,6 +4,10 @@
     Author     : lenovo
 --%>
 
+<%@page import="dto.CommandeDTO"%>
+<%@page import="entities.Commande"%>
+<%@page import="entities.Categorie"%>
+<%@page import="service.CategorieService"%>
 <%@page import="entities.Client"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -41,13 +45,11 @@
                             if (client.equals("Mon Compte")) {
 
                         %>
-                        
-                    <button onclick="togglePopup()" class="dropdown-item" >Se connecter</button>
-                    
+
+                        <button onclick="document.location = 'connexion.html'" class="dropdown-item" >Se connecter</button>
+
                         <%} else {%>
-                        <form action="/deconnexion">
-                            <input class="dropdown-item" type="submit" value="Se déconnecter">
-                        </form>
+                            <a class="dropdown-item" href="/deconnexion">Se déconnecter</a>
                         <%}%>
                         <button class="dropdown-item" type="button">Mon Profile</button>
                         <a class="dropdown-item" type="button" href="mesCommandes.jsp">Mes Commandes</a>                     
@@ -118,25 +120,38 @@
                 <h6 class="text-dark m-0"><i class="fa fa-bars mr-2"></i>Categories</h6>
                 <i class="fa fa-angle-down text-dark"></i>
             </a>
+            <%
+                CategorieService cs = new CategorieService();
+
+            %>
+
             <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
-                <div class="navbar-nav w-100">
+                <div class="navbar-nav w-100"> 
+
+                    <%                            for (Categorie c : cs.findAll()) {
+                            if (c.getSupCategorie() == null) {
+                    %>
                     <div class="nav-item dropdown dropright">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dresses <i class="fa fa-angle-right float-right mt-1"></i></a>
+                        <%
+                            if (c.getCategories().size() > 0) {
+                        %>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            <%=c.getNom()%><i class="fa fa-angle-right float-right mt-1"></i>
+                        </a>
                         <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-                            <a href="" class="dropdown-item">Men's Dresses</a>
-                            <a href="" class="dropdown-item">Women's Dresses</a>
-                            <a href="" class="dropdown-item">Baby's Dresses</a>
+                            <% for (Categorie sbc : c.getCategories()) {%>
+                            <a href="" class="dropdown-item"><%=sbc.getNom()%></a>
+                            <% } %>
                         </div>
+                        <% } else {%>
+                        <a href="" class="nav-item nav-link"><%=c.getNom()%></a>
+                        <%}%>
                     </div>
-                    <a href="" class="nav-item nav-link">Shirts</a>
-                    <a href="" class="nav-item nav-link">Jeans</a>
-                    <a href="" class="nav-item nav-link">Swimwear</a>
-                    <a href="" class="nav-item nav-link">Sleepwear</a>
-                    <a href="" class="nav-item nav-link">Sportswear</a>
-                    <a href="" class="nav-item nav-link">Jumpsuits</a>
-                    <a href="" class="nav-item nav-link">Blazers</a>
-                    <a href="" class="nav-item nav-link">Jackets</a>
-                    <a href="" class="nav-item nav-link">Shoes</a>
+                    <%
+                            }
+                        }
+                    %>
+
                 </div>
             </nav>
         </div>
@@ -160,9 +175,12 @@
                             <i class="fas fa-heart text-primary"></i>
                             <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
                         </a>
-                        <a href="" class="btn px-0 ml-3">
+                        <a href="cart.jsp" class="btn px-0 ml-3">
                             <i class="fas fa-shopping-cart text-primary"></i>
-                            <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
+                            <% int amount = 0;
+                            if(session.getAttribute("user-o") != null) amount = (new CommandeDTO((Commande) session.getAttribute("cart"))).getProduits();
+                            %>
+                            <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;"><%= amount %></span>
                         </a>
                     </div>
                 </div>

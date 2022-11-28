@@ -33,7 +33,7 @@ public class Commande implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Temporal(TemporalType.TIME)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
     @ManyToOne
@@ -53,6 +53,7 @@ public class Commande implements Serializable {
         this.client = client;
         this.date = new Date();
         this.ligneCommandes = new ArrayList<>();
+        this.etat = CommandeEtat.ENCOURS;
     }
 
     public int getId() {

@@ -27,7 +27,7 @@ public class Categorie {
 
     @ManyToOne
     private Categorie supCategorie;
-    @OneToMany(mappedBy = "supCategorie")
+    @OneToMany(mappedBy = "supCategorie",fetch = FetchType.EAGER)
     private List<Categorie> categories;
 
     @OneToMany(mappedBy = "categorie", fetch = FetchType.EAGER)

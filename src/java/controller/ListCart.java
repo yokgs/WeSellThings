@@ -59,6 +59,8 @@ public class ListCart extends HttpServlet {
         } catch (NumberFormatException e) {
 
         }
+        
+        response.sendRedirect("/client/cart.jsp");
 
     }
 
