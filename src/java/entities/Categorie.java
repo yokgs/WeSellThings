@@ -15,7 +15,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
- *
  * @author user
  */
 @Entity
@@ -30,8 +29,8 @@ public class Categorie {
     private Categorie supCategorie;
     @OneToMany(mappedBy = "supCategorie")
     private List<Categorie> categories;
-    
-    @OneToMany(mappedBy = "categorie", fetch = FetchType.EAGER )
+
+    @OneToMany(mappedBy = "categorie", fetch = FetchType.EAGER)
     private List<Produit> produits;
 
     public Categorie(String nom, Categorie categorie) {

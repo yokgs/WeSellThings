@@ -179,13 +179,13 @@
                                     </button>
                                 </div>
                             </div>
-
+                            
                             <%
-                                //String size = request.getParameter("size");
-                                //String quantite = (String)request.getAttribute("quantite");
-                                //int quantite = Integer.parseInt(request.getParameter("quantite"));
-                                String url = "cart.jsp?id=" + id + "&quantite=1";
-
+                            //String size = request.getParameter("size");
+                            //String quantite = (String)request.getAttribute("quantite");
+                            //int quantite = Integer.parseInt(request.getParameter("quantite"));
+                            String url = "cart.jsp?id="+id+"&quantite=1";
+                            
                             %>
                             <div class="popup">
                                 <div class="popup" id="popup-1">
@@ -486,8 +486,8 @@
 
 
         <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="lib/bootstrap.bundle.min.js"></script>
         <script src="lib/easing/easing.min.js"></script>
         <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 

@@ -12,7 +12,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 /**
- *
  * @author Lachgar
  */
 @Entity
@@ -30,6 +29,13 @@ public class LigneCommande {
     private Commande commande;
 
     public LigneCommande() {
+    }
+
+    public LigneCommande(double prixVente, int quantité, Produit produit, Commande commande) {
+        this.prixVente = prixVente;
+        this.quantité = quantité;
+        this.produit = produit;
+        this.commande = commande;
     }
 
     public LigneCommandePK getCommandePK() {
@@ -71,6 +77,6 @@ public class LigneCommande {
     public void setCommande(Commande commande) {
         this.commande = commande;
     }
-    
-    
+
+
 }

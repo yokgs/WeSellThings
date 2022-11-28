@@ -5,29 +5,32 @@
  */
 package dto;
 
+import entities.Client;
 import entities.Commande;
+
 import java.util.Date;
 
 /**
- *
- * @author yyazid slila
+ * @author yazid slila
  */
 public class CommandeDTO {
 
-    private int id;
-    private Date date;
-    private int clientId;
-    private String client;
+    private final int id;
+    private final Date date;
+    private final int clientId;
+    private final String client;
     private double prix;
     private int produits;
 
     public CommandeDTO(Commande commande) {
-        this.client = commande.getClient().getNom();
-        this.clientId = commande.getClient().getId();
+        Client client = commande.getClient();
+        this.client = client == null ? "" : client.getNom();
+        this.clientId = client == null ? 1 : client.getId();
         this.date = commande.getDate();
         this.id = commande.getId();
         this.prix = 0;
         this.produits = 0;
+
         commande.getLigneCommandes().forEach(x -> {
             prix += x.getPrixVente();
             produits += x.getQuantité();

@@ -7,14 +7,15 @@ package service;
 
 import dao.IDao;
 import entities.Produit;
+
 import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.HibernateUtil;
 
 /**
- *
  * @author user
  */
 public class ProduitService implements IDao<Produit> {

@@ -14,7 +14,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- *
  * @author user
  */
 @Entity
@@ -23,10 +22,10 @@ public class Facture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    
+
     @Temporal(TemporalType.DATE)
     private Date date;
-    
+
     private double montant;
 
     public Facture(Date date, double montant) {

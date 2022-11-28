@@ -8,7 +8,6 @@ package dto;
 import entities.Client;
 
 /**
- *
  * @author user
  */
 public class ClientDTO {

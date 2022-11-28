@@ -8,7 +8,6 @@ package entities;
 import javax.persistence.Entity;
 
 /**
- *
  * @author user
  */
 @Entity

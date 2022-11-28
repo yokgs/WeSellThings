@@ -64,7 +64,25 @@
 
         <!-- Shop Detail Start -->
 
+
         <%
+            ProduitService ps = new ProduitService();
+            int id = Integer.parseInt(request.getParameter("id"));
+            Produit p = ps.findById(id);
+            String nom = p.getNom();
+            String description = p.getDescription();
+            String designation = p.getDesignation();
+            // String image =p.getImage();
+            String image = "img/notyet.jpg";
+            double prix = p.getPrix();
+            int unite = p.getUnite();
+            Categorie categorie_id = p.getCategorie();
+            Marque marque = p.getMarque();
+            int nbrVotes = 100;
+            double prePrix = prix + 40;
+
+        %>
+
             ProduitService ps = new ProduitService();
             int id = Integer.parseInt(request.getParameter("id"));
             Produit p = ps.findById(id);
@@ -184,7 +202,7 @@
                                 //String size = request.getParameter("size");
                                 //String quantite = (String)request.getAttribute("quantite");
                                 //int quantite = Integer.parseInt(request.getParameter("quantite"));
-                                String url = "cart.jsp?id=" + id + "&quantite=1";
+                                String url = "../cart?id=" + id + "&quantite=1";
 
                             %>
                             <div class="popup">
@@ -486,8 +504,8 @@
 
 
         <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="lib/bootstrap.bundle.min.js"></script>
         <script src="lib/easing/easing.min.js"></script>
         <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
