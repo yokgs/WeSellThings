@@ -4,6 +4,7 @@
     Author     : lenovo
 --%>
 
+<%@page import="dto.CategorieDTO"%>
 <%@page import="entities.Client"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -116,7 +117,9 @@
         </div>
         <!-- Featured End -->
 
-
+        <%            CategorieService cc = new CategorieService();
+            
+        %>
         <!-- Categories Start -->
         <div class="container-fluid pt-5">
             <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Categories</span></h2>
@@ -125,11 +128,11 @@
                     <a class="text-decoration-none" href="">
                         <div class="cat-item d-flex align-items-center mb-4">
                             <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                <img class="img-fluid" src="img/cat-1.jpg" alt="">
+                                <img class="img-fluid" src="img/catnotyet.jpg" alt="">
                             </div>
                             <div class="flex-fill pl-3">
-                                <h6>Category Name</h6>
-                                <small class="text-body">100 Products</small>
+                                <h6><%=cc.findAll().get(0).getNom()%></h6>
+                                <small class="text-body"><%=(new CategorieDTO(cc.findAll().get(0))).getProduits()%> Products</small>
                             </div>
                         </div>
                     </a>
@@ -138,11 +141,11 @@
                     <a class="text-decoration-none" href="">
                         <div class="cat-item img-zoom d-flex align-items-center mb-4">
                             <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                <img class="img-fluid" src="img/cat-2.jpg" alt="">
+                                <img class="img-fluid" src="img/catnotyet.jpg" alt="">
                             </div>
                             <div class="flex-fill pl-3">
-                                <h6>Category Name</h6>
-                                <small class="text-body">100 Products</small>
+                                <h6><%=cc.findAll().get(4).getNom()%></h6>
+                                <small class="text-body"><%=(new CategorieDTO(cc.findAll().get(4))).getProduits()%> Products</small>
                             </div>
                         </div>
                     </a>
@@ -151,11 +154,11 @@
                     <a class="text-decoration-none" href="">
                         <div class="cat-item img-zoom d-flex align-items-center mb-4">
                             <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                <img class="img-fluid" src="img/cat-3.jpg" alt="">
+                                <img class="img-fluid" src="img/catnotyet.jpg" alt="">
                             </div>
                             <div class="flex-fill pl-3">
-                                <h6>Category Name</h6>
-                                <small class="text-body">100 Products</small>
+                                <h6><%=cc.findAll().get(8).getNom()%></h6>
+                                <small class="text-body"><%=(new CategorieDTO(cc.findAll().get(8))).getProduits()%> Products</small>
                             </div>
                         </div>
                     </a>
@@ -164,11 +167,11 @@
                     <a class="text-decoration-none" href="">
                         <div class="cat-item img-zoom d-flex align-items-center mb-4">
                             <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                <img class="img-fluid" src="img/cat-4.jpg" alt="">
+                                <img class="img-fluid" src="img/catnotyet.jpg" alt="">
                             </div>
                             <div class="flex-fill pl-3">
-                                <h6>Category Name</h6>
-                                <small class="text-body">100 Products</small>
+                                <h6><%=cc.findAll().get(9).getNom()%></h6>
+                                <small class="text-body"><%=(new CategorieDTO(cc.findAll().get(9))).getProduits()%> Products</small>
                             </div>
                         </div>
                     </a>
@@ -177,11 +180,11 @@
                     <a class="text-decoration-none" href="">
                         <div class="cat-item img-zoom d-flex align-items-center mb-4">
                             <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                <img class="img-fluid" src="img/cat-4.jpg" alt="">
+                                <img class="img-fluid" src="img/catnotyet.jpg" alt="">
                             </div>
                             <div class="flex-fill pl-3">
-                                <h6>Category Name</h6>
-                                <small class="text-body">100 Products</small>
+                                <h6><%=cc.findAll().get(10).getNom()%></h6>
+                                <small class="text-body"><%=(new CategorieDTO(cc.findAll().get(10))).getProduits()%> Products</small>
                             </div>
                         </div>
                     </a>
@@ -190,11 +193,11 @@
                     <a class="text-decoration-none" href="">
                         <div class="cat-item img-zoom d-flex align-items-center mb-4">
                             <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                <img class="img-fluid" src="img/cat-3.jpg" alt="">
+                                <img class="img-fluid" src="img/catnotyet.jpg" alt="">
                             </div>
                             <div class="flex-fill pl-3">
-                                <h6>Category Name</h6>
-                                <small class="text-body">100 Products</small>
+                                <h6><%=cc.findAll().get(11).getNom()%></h6>
+                                <small class="text-body"><%=(new CategorieDTO(cc.findAll().get(11))).getProduits()%> Products</small>
                             </div>
                         </div>
                     </a>
@@ -203,76 +206,11 @@
                     <a class="text-decoration-none" href="">
                         <div class="cat-item img-zoom d-flex align-items-center mb-4">
                             <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                <img class="img-fluid" src="img/cat-2.jpg" alt="">
+                                <img class="img-fluid" src="img/catnotyet.jpg" alt="">
                             </div>
                             <div class="flex-fill pl-3">
-                                <h6>Category Name</h6>
-                                <small class="text-body">100 Products</small>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                    <a class="text-decoration-none" href="">
-                        <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                            <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                <img class="img-fluid" src="img/cat-1.jpg" alt="">
-                            </div>
-                            <div class="flex-fill pl-3">
-                                <h6>Category Name</h6>
-                                <small class="text-body">100 Products</small>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                    <a class="text-decoration-none" href="">
-                        <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                            <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                <img class="img-fluid" src="img/cat-2.jpg" alt="">
-                            </div>
-                            <div class="flex-fill pl-3">
-                                <h6>Category Name</h6>
-                                <small class="text-body">100 Products</small>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                    <a class="text-decoration-none" href="">
-                        <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                            <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                <img class="img-fluid" src="img/cat-1.jpg" alt="">
-                            </div>
-                            <div class="flex-fill pl-3">
-                                <h6>Category Name</h6>
-                                <small class="text-body">100 Products</small>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                    <a class="text-decoration-none" href="">
-                        <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                            <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                <img class="img-fluid" src="img/cat-4.jpg" alt="">
-                            </div>
-                            <div class="flex-fill pl-3">
-                                <h6>Category Name</h6>
-                                <small class="text-body">100 Products</small>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                    <a class="text-decoration-none" href="">
-                        <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                            <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                <img class="img-fluid" src="img/cat-3.jpg" alt="">
-                            </div>
-                            <div class="flex-fill pl-3">
-                                <h6>Category Name</h6>
-                                <small class="text-body">100 Products</small>
+                                <h6><%=cc.findAll().get(12).getNom()%></h6>
+                                <small class="text-body"><%=(new CategorieDTO(cc.findAll().get(12))).getProduits()%> Products</small>
                             </div>
                         </div>
                     </a>

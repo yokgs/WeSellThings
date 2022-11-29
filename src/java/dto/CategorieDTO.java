@@ -34,4 +34,9 @@ public class CategorieDTO {
         return categorie;
     }
 
+    public int getProduits() {
+        return produits;
+    }
+    
+
 }

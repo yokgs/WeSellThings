@@ -9,20 +9,20 @@ var ajax1 = [
     {
         image: 'img/ecouteurs.webp',
         titreReduction: "reduction 60%",
-        titre: "Airpods dial jumia",
+        titre: "Airpods",
         url : '**'
     }
 ]
 var ajax2 = [
     {
         image: 'img/ensemble.webp',
-        titreReduction: "jacketa hotgam",
+        titreReduction: "jacket",
         titre: "3000 DH",
         url : '**'
     },
     {
         image: 'img/glasses1.jpg',
-        titreReduction: "Ndader d'ilyass lmalki",
+        titreReduction: "glasses",
         titre: "10 DH",
         url : '**'
     }

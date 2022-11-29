@@ -16,23 +16,33 @@ public class CommandeEtatConverter implements AttributeConverter<CommandeEtat, I
 
     @Override
     public Integer convertToDatabaseColumn(CommandeEtat attribute) {
-        return switch (attribute) {
-            case ENCOURS -> 1;
-            case APPROUVEE -> 2;
-            case LIVREE -> 3;
-            case ANNULEE -> 0;
-            default -> 1;
+        switch (attribute) {
+            case ENCOURS:
+                return 1;
+            case APPROUVEE:
+                return 2;
+            case LIVREE:
+                return 3;
+            case ANNULEE:
+                return 0;
+            default:
+                return 1;
         }
     }
 
     @Override
     public CommandeEtat convertToEntityAttribute(Integer dbData) {
-        return switch (dbData) {
-            case 1 -> ENCOURS;
-            case 2 -> APPROUVEE;
-            case 3 -> LIVREE;
-            case 0 -> ANNULEE;
-            default -> ANNULEE;
+        switch (dbData) {
+            case 1:
+               return CommandeEtat.ENCOURS;
+            case 2:
+               return CommandeEtat.APPROUVEE;
+            case 3:
+                return CommandeEtat.LIVREE;
+            case 0:
+               return CommandeEtat.ANNULEE;
+            default:
+                return CommandeEtat.ANNULEE;
         }
     }
 

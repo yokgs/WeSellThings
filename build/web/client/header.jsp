@@ -28,8 +28,9 @@
                 <%
                     HttpSession s = request.getSession();
                     String client = "Mon Compte";
-                    c = (Client) s.getAttribute("user-o");
+                    
                     try {
+                        c = (Client) s.getAttribute("user-o");
                         client = c.getPrenom();
                     } catch (Exception e) {
                     }
@@ -87,8 +88,8 @@
     <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
         <div class="col-lg-4">
             <a href="indexClient.jsp" class="text-decoration-none">
-                <span class="h1 text-uppercase text-primary bg-dark px-2">ISI</span>
-                <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">SHOP</span>
+                <span class="h1 text-uppercase text-primary bg-dark px-2">WE</span>
+                <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">SELLTHINGS</span>
             </a>
         </div>
         <div class="col-lg-4 col-6 text-left">
