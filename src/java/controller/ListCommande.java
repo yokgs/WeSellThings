@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import middleware.SessionUtil;
 
 import service.ClientService;
 import service.CommandeService;
@@ -43,9 +44,15 @@ public class ListCommande extends HttpServlet {
         response.setContentType("application/json");
         Gson gson = new Gson();
         List<CommandeDTO> mdto = new ArrayList<>();
-        cs.findAll().forEach(x -> {
-            mdto.add(new CommandeDTO(x));
-        });
+        if (SessionUtil.isClient(request, response)) {
+            cs.findByClient((Client) request.getSession().getAttribute("user-o")).forEach(x -> {
+                mdto.add(new CommandeDTO(x));
+            });
+        } else {
+            cs.findAll().forEach(x -> {
+                mdto.add(new CommandeDTO(x));
+            });
+        }
         response.getWriter().write(gson.toJson(mdto));
     }
 
@@ -58,7 +65,6 @@ public class ListCommande extends HttpServlet {
         Client client = cls.findById(((User) session.getAttribute("user-o")).getId());
 
         String nom = request.getParameter("nom");
-
 
         this.doGet(request, response);
     }

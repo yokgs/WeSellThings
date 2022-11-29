@@ -120,4 +120,25 @@ public class CommandeService implements IDao<Commande> {
         }
         return commandes;
     }
+
+    public List<Commande> findByClient(Client client) {
+        List<Commande> commandes = null;
+        Session session = null;
+        Transaction tx = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            commandes = session.createQuery("select c from Commande c where c.client = :client")
+                    .setParameter("client", client)
+                    .list();
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
+        }
+        return commandes;
+    }
 }
