@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import dto.MarqueDTO;
 import dto.ProduitDTO;
 import entities.Marque;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
@@ -20,10 +21,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import service.MarqueService;
 
 /**
- *
  * @author user
  */
 @WebServlet(name = "ListMarque", urlPatterns = {"/marque"})

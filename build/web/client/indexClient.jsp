@@ -11,11 +11,11 @@
 
     <head>
         <meta charset="utf-8">
-        <title>MultiShop - Online Shop Website Template</title>
+        <title>WeSellThings</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="Free HTML Templates" name="keywords">
         <meta content="Free HTML Templates" name="description">
-
+        <script src="js/jquery-3.3.1.min.js"></script>
         <!-- Favicon -->
         <link href="img/favicon.ico" rel="icon">
 
@@ -33,9 +33,29 @@
         <!-- Customized Bootstrap Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
         <link href="css/newcss.css" rel="stylesheet" type="text/css"/>
+        <link href="css/poUp.css" rel="stylesheet">
     </head>
 
     <body>
+
+
+
+        <div class="popup" id="popup-1">
+            <div class="content">
+                <div class="close-btn" onclick="togglePopup()">
+                    ×</div>
+
+                <h1 class="text-white">Sign in</h1> 
+                <div class="input-field"><input placeholder="Email" class="validate"></div>
+                <div class="input-field"><input placeholder="Password" class="validate"></div>
+                <button class="second-button">Sign in</button>
+                <p class="text-white">Don't have an account? <a href="/signup.html">Sign Up</a></p>
+
+
+            </div>
+        </div>
+
+
 
         <!-- Header(Top bar and navbar) Start -->
         <%@include file="header.jsp" %>
@@ -350,7 +370,6 @@
         <script src="js/remplirOffre.js"></script>
         <script src="js/remplirReduction1et2.js"></script>
         <script src="js/remplirProduit.js"></script>
-        <script src="js/connexion.js"></script>
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>

@@ -6,6 +6,7 @@
 package controller;
 
 import entities.Commande;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,23 +14,23 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import service.CommandeService;
 
 /**
- *
  * @author yazid slila
  */
 @WebServlet(name = "UpdateCommande", urlPatterns = {"/commande/update"})
 public class UpdateCommande extends HttpServlet {
 
-   
+
     private CommandeService cs = new CommandeService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Commande commande  = cs.findById(id);
+        Commande commande = cs.findById(id);
         cs.delete(commande);
         response.sendRedirect("/commande");
     }
@@ -39,7 +40,7 @@ public class UpdateCommande extends HttpServlet {
             throws ServletException, IOException {
         String nom = request.getParameter("id");
         int id = Integer.parseInt(request.getParameter("id"));
-        Commande commande= cs.findById(id);
+        Commande commande = cs.findById(id);
         //commande.set(nom);
         cs.update(commande);
         response.sendRedirect("/commande");
