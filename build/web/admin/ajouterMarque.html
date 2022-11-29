@@ -164,28 +164,25 @@
               </li>
             </ul>
           </li>
-          <!-- Tables -->
+          <li class="menu-header small text-uppercase"><span class="menu-header-text">Commandes</span></li>
           <li class="menu-item">
-            <a href="tables-basic.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-table"></i>
-              <div>Tables</div>
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-detail"></i>
+              <div data-i18n="Form Layouts">Commandes</div>
             </a>
-          </li>
-          <!-- Misc -->
-          <li class="menu-header small text-uppercase"><span class="menu-header-text">Misc</span></li>
-          <li class="menu-item">
-            <a href="https://github.com/themeselection/WeSellThings-html-admin-template-free/issues" target="_blank"
-              class="menu-link">
-              <i class="menu-icon tf-icons bx bx-support"></i>
-              <div data-i18n="Support">Support</div>
-            </a>
-          </li>
-          <li class="menu-item">
-            <a href="https://themeselection.com//WeSellThings-bootstrap-html-admin-template/documentation/" target="_blank"
-              class="menu-link">
-              <i class="menu-icon tf-icons bx bx-file"></i>
-              <div data-i18n="Documentation">Documentation</div>
-            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="cmd1.html" class="menu-link">
+                  <div data-i18n="Vertical Form">Encours</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="cmd2.html" class="menu-link">
+                  <div data-i18n="Horizontal Form">Approvees</div>
+                </a>
+              </li>
+
+            </ul>
           </li>
         </ul>
       </aside>
@@ -193,7 +190,7 @@
 
       <!-- Layout container -->
       <div class="layout-page">
-  
+
 
         <!-- Content wrapper -->
         <div class="content-wrapper">
@@ -203,59 +200,55 @@
             <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Marques /</span>Ajouter une marque</h4>
 
             <div class="row">
-                
-                    <div class="card mb-4">
-                      <h5 class="card-header">Nouvelle Marque :</h5>
-                      <div class="card-body">
-                        <div class="form-floating mb-3">
-                          <input type="text" class="form-control" id="nomMarque" placeholder="XXXXXX" aria-describedby="floatingInputHelp">
-                          <label for="floatingInput">Nom du Marque</label>
-                          
-                          <div id="floatingInputHelp" class="form-text">
-                           votre marque doit etre bien connue et certifiée
-                          </div>
-                        </div>
-                        <button type="button" class="btn btn-primary" id="btnAddMarque">
-                            <span class="tf-icons bx bx-save"></span>&nbsp; Sauvegarder
-                          </button>
-                      </div>
+
+              <div class="card mb-4">
+                <h5 class="card-header">Nouvelle Marque :</h5>
+                <div class="card-body">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="nomMarque" placeholder="XXXXXX"
+                      aria-describedby="floatingInputHelp">
+                    <label for="floatingInput">Nom du Marque</label>
+
+                    <div id="floatingInputHelp" class="form-text">
+                      votre marque doit etre bien connue et certifiée
                     </div>
                   </div>
-             
-              
+                  <button type="button" class="btn btn-primary" id="btnAddMarque">
+                    <span class="tf-icons bx bx-save"></span>&nbsp; Sauvegarder
+                  </button>
+                </div>
               </div>
-
-             
-            
-
-  <!-- Core JS -->
-  <!-- build:js assets/vendor/js/core.js -->
-  <script src="./assets/vendor/libs/jquery/jquery.js"></script>
-  <script src="./assets/vendor/libs/popper/popper.js"></script>
-  <script src="./assets/vendor/js/bootstrap.js"></script>
-  <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-
-  <script src="./assets/vendor/js/menu.js"></script>
-  <script src="./js/remplirMarque.js"></script>
- 
-
-  <!-- endbuild -->
-
-  <!-- Vendors JS -->
-
-  <!-- Main JS -->
-  <script src="./assets/js/main.js"></script>
-
-  <!-- Page JS -->
+            </div>
 
 
-  <!-- Place this tag in your head or just before your close body tag. -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
+          </div>
+
+
+
+
+          <!-- Core JS -->
+          <!-- build:js assets/vendor/js/core.js -->
+          <script src="./assets/vendor/libs/jquery/jquery.js"></script>
+          <script src="./assets/vendor/libs/popper/popper.js"></script>
+          <script src="./assets/vendor/js/bootstrap.js"></script>
+          <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+          <script src="./assets/vendor/js/menu.js"></script>
+          <script src="./js/remplirMarque.js"></script>
+
+
+          <!-- endbuild -->
+
+          <!-- Vendors JS -->
+
+          <!-- Main JS -->
+          <script src="./assets/js/main.js"></script>
+
+          <!-- Page JS -->
+
+
+          <!-- Place this tag in your head or just before your close body tag. -->
+          <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 
 </html>
-
-
-
-
-

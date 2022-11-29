@@ -8,6 +8,7 @@ package service;
 import dao.IDao;
 import entities.Client;
 import entities.Commande;
+import entities.CommandeEtat;
 
 import java.util.List;
 
@@ -130,6 +131,27 @@ public class CommandeService implements IDao<Commande> {
             tx = session.beginTransaction();
             commandes = session.createQuery("select c from Commande c where c.client = :client")
                     .setParameter("client", client)
+                    .list();
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
+        }
+        return commandes;
+    }
+    
+     public List<Commande> findByEtat(CommandeEtat etat) {
+        List<Commande> commandes = null;
+        Session session = null;
+        Transaction tx = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            commandes = session.createQuery("select c from Commande c where c.etat = :etat")
+                    .setParameter("etat", etat)
                     .list();
             tx.commit();
         } catch (HibernateException e) {
