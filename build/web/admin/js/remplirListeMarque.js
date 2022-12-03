@@ -18,17 +18,18 @@ function remplirListeMarqueArgs(d) {
     $("#tableMarque").html(html);
     $(".data-delete").click(function () {
         var id = $(this).attr("data-id");
-        $.ajax({
-            url: '/marque/update',
-            method: 'GET',
-            data: {
-                id
-            },
-            success: function (data, textStatus, jqXHR) {
-                remplirListeMarqueArgs(data);
-            }
-        });
-
+        if (confirm("supprimer ?")) {
+            $.ajax({
+                url: '/marque/update',
+                method: 'GET',
+                data: {
+                    id
+                },
+                success: function (data, textStatus, jqXHR) {
+                    remplirListeMarqueArgs(data);
+                }
+            });
+        }
 
     })
 }

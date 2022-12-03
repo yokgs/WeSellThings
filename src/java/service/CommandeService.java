@@ -142,8 +142,8 @@ public class CommandeService implements IDao<Commande> {
         }
         return commandes;
     }
-    
-     public List<Commande> findByEtat(CommandeEtat etat) {
+
+    public List<Commande> findByEtat(CommandeEtat etat) {
         List<Commande> commandes = null;
         Session session = null;
         Transaction tx = null;
