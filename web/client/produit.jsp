@@ -10,6 +10,7 @@
 <%@page import="service.ProduitService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@include file="isLoggedIn.jsp" %>
 <html lang="en">
 
     <head>
@@ -67,7 +68,12 @@
 
         <%
             ProduitService ps = new ProduitService();
-            int id = Integer.parseInt(request.getParameter("id"));
+            int id = 1;
+            try{
+            id = Integer.parseInt(request.getParameter("id"));
+            }catch(NumberFormatException e){
+                response.sendRedirect("shop.jsp");
+            }
             Produit p = ps.findById(id);
             String nom = p.getNom();
             String description = p.getDescription();
