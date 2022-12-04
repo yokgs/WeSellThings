@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/WeSellThings/src/java/controller/ListCart.java</file>
             <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/WeSellThings/src/java/dto/MarqueDTO.java</file>
             <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/WeSellThings/web/client/cart.jsp</file>
@@ -10,6 +11,48 @@
             <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/WeSellThings/web/client/shop.jsp</file>
             <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/WeSellThings/web/client/produit.jsp</file>
             <file>file:/C:/Users/lenovo/Documents/NetBeansProjects/WeSellThings/web/client/indexClient.jsp</file>
+=======
+            <file>file:/C:/Users/user/WeSellThings/web/client/lib/animate/animate.min.css</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/controller/SignUpController.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/entities/LigneCommande.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/entities/Client.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/dto/MarqueDTO.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/entities/CommandeEtat.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/service/UserService.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/dto/CommandeDTO.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/test/Test1.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/hibernate.cfg.xml</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/middleware/SessionUtil.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/controller/LoginController.java</file>
+            <file>file:/C:/Users/user/WeSellThings/web/client/produit.jsp</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/service/CategorieService.java</file>
+            <file>file:/C:/Users/user/WeSellThings/web/client/indexClient.jsp</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/dto/ClientDTO.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/controller/ListCommandeEtat.java</file>
+            <file>file:/C:/Users/user/WeSellThings/web/client/cart.jsp</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/controller/ListCategorie.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/controller/UpdateCategorie.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/dto/ProduitDTO.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/controller/ListMarque.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/entities/CommandeEtatConverter.java</file>
+            <file>file:/C:/Users/user/WeSellThings/web/client/header.jsp</file>
+            <file>file:/C:/Users/user/WeSellThings/web/client/footer.jsp</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/entities/Commande.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/controller/ListFacture.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/entities/Admin.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/service/ProduitService.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/service/CommandeService.java</file>
+            <file>file:/C:/Users/user/WeSellThings/web/client/js/url.provider.js</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/controller/ListCart.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/controller/CheckSession.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/controller/ListProduit.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/controller/ListCommande.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/entities/Produit.java</file>
+            <file>file:/C:/Users/user/WeSellThings/web/client/shop.jsp</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/dto/CategorieDTO.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/controller/UpdateProduit.java</file>
+            <file>file:/C:/Users/user/WeSellThings/src/java/service/PasswordService.java</file>
+>>>>>>> 11c78b1777e53e30a28ec52cb0020e94dae56da8
         </group>
     </open-files>
 </project-private>

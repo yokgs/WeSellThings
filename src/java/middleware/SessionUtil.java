@@ -20,7 +20,7 @@ public class SessionUtil {
     public static boolean isLoggedIn(HttpServletRequest request, HttpServletResponse response) throws IOException {
         boolean b = request.getSession().getAttribute("user-o") != null;
         if (b) {
-            response.sendRedirect("client/connexion.html");
+            response.sendRedirect("/client/connexion.html");
         }
         return b;
     }

@@ -7,11 +7,11 @@ package controller;
 
 import com.google.gson.Gson;
 import dto.CommandeDTO;
-import dto.MarqueDTO;
 import entities.Client;
-import entities.Marque;
+import entities.Commande;
+import entities.CommandeEtat;
+import entities.CommandeEtatConverter;
 import entities.User;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -24,16 +24,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import middleware.SessionUtil;
-
 import service.ClientService;
 import service.CommandeService;
-import service.MarqueService;
 
 /**
- * @author yazid slila
+ *
+ * @author user
  */
-@WebServlet(name = "ListCommande", urlPatterns = {"/commande"})
-public class ListCommande extends HttpServlet {
+@WebServlet(name = "ListCommandeEtat", urlPatterns = {"/commande/etat"})
+public class ListCommandeEtat extends HttpServlet {
 
     private CommandeService cs = new CommandeService();
     private ClientService cls = new ClientService();
@@ -42,14 +41,12 @@ public class ListCommande extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("application/json");
+        int etat = Integer.parseInt(request.getParameter("etat"));
+        CommandeEtat ce = (new CommandeEtatConverter()).convertToEntityAttribute(etat);
         Gson gson = new Gson();
         List<CommandeDTO> mdto = new ArrayList<>();
-        if (SessionUtil.isClient(request, response)) {
-            cs.findByClient((Client) request.getSession().getAttribute("user-o")).forEach(x -> {
-                mdto.add(new CommandeDTO(x));
-            });
-        } else {
-            cs.findAll().forEach(x -> {
+        if (!SessionUtil.isClient(request, response)) {
+            cs.findByEtat(ce).forEach(x -> {
                 mdto.add(new CommandeDTO(x));
             });
         }
@@ -59,14 +56,12 @@ public class ListCommande extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Date now = new Date();
-        HttpSession session = request.getSession();
-
-        Client client = cls.findById(((User) session.getAttribute("user-o")).getId());
-
-        String nom = request.getParameter("nom");
-
-        this.doGet(request, response);
+        int etat = Integer.parseInt(request.getParameter("etat"));
+        CommandeEtat ce = (new CommandeEtatConverter()).convertToEntityAttribute(etat);
+        int id = Integer.parseInt(request.getParameter("id"));
+        Commande commande = cs.findById(id);
+        commande.setEtat(ce);
+        cs.update(commande);
     }
 
     @Override

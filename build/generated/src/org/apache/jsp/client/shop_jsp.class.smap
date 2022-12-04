@@ -5,6 +5,7 @@ JSP
 *F
 + 0 shop.jsp
 client/shop.jsp
+<<<<<<< HEAD
 + 1 header.jsp
 client/header.jsp
 + 2 footer.jsp
@@ -73,4 +74,33 @@ client/footer.jsp
 239,26:566
 5#2,72:592
 264#0,24:663
+=======
++ 1 isLoggedIn.jsp
+client/isLoggedIn.jsp
++ 2 header.jsp
+client/header.jsp
++ 3 footer.jsp
+client/footer.jsp
+*L
+5,4:53
+5#1,7:56
+11:63
+8#0,35:64
+5#2,19:99
+23:11
+23,2:118
+25,11:121
+35,2:132
+37:134,3
+38,2:137
+40,4:140
+43,4:144
+47:148,3
+48,3:151
+51:154,3
+52,123:157
+42#0,196:279
+5#3,76:475
+237#0,24:550
+>>>>>>> 11c78b1777e53e30a28ec52cb0020e94dae56da8
 *E

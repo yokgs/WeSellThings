@@ -34,13 +34,11 @@ public class CommandeEtatConverter implements AttributeConverter<CommandeEtat, I
     public CommandeEtat convertToEntityAttribute(Integer dbData) {
         switch (dbData) {
             case 1:
-               return CommandeEtat.ENCOURS;
+                return CommandeEtat.ENCOURS;
             case 2:
-               return CommandeEtat.APPROUVEE;
+                return CommandeEtat.APPROUVEE;
             case 3:
                 return CommandeEtat.LIVREE;
-            case 0:
-               return CommandeEtat.ANNULEE;
             default:
                 return CommandeEtat.ANNULEE;
         }

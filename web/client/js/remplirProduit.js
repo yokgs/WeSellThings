@@ -56,4 +56,4 @@ $.ajax({
         remplirProduit1args("#produits", data);
     }
 });
-
+alert(document.location)

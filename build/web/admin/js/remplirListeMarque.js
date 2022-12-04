@@ -18,7 +18,11 @@ function remplirListeMarqueArgs(d) {
     $("#tableMarque").html(html);
     $(".data-delete").click(function () {
         var id = $(this).attr("data-id");
+<<<<<<< HEAD
         if(confirm("supprimer ?")){
+=======
+        if (confirm("supprimer ?")) {
+>>>>>>> 11c78b1777e53e30a28ec52cb0020e94dae56da8
             $.ajax({
                 url: '/marque/update',
                 method: 'GET',
@@ -30,8 +34,11 @@ function remplirListeMarqueArgs(d) {
                 }
             });
         }
+<<<<<<< HEAD
         
 
+=======
+>>>>>>> 11c78b1777e53e30a28ec52cb0020e94dae56da8
 
     })
 }
