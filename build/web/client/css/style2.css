@@ -49,7 +49,7 @@ body {
   position: absolute;
   top: 50%;
   right: -5px;
-  background-color: #24d278;
+  background-color: #ffcf1e;
   -webkit-transform: translate(100%, -50%);
           transform: translate(100%, -50%);
 }
@@ -780,7 +780,7 @@ a:focus {
 .contact_section button {
   display: inline-block;
   padding: 12px 45px;
-  background-color: #24d278;
+  background-color: #ffcf1e;
   color: #ffffff;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -793,8 +793,8 @@ a:focus {
 
 .contact_section button:hover {
   background-color: transparent;
-  border-color: #24d278;
-  color: #24d278;
+  border-color: #ffcf1e;
+  color: #ffcf1e;
 }
 
 .contact_section .map_container {
@@ -958,7 +958,7 @@ a:focus {
 .info_section .info_form form button {
   display: inline-block;
   padding: 8px 30px;
-  background-color: #24d278;
+  background-color: #ffcf1e;
   color: #ffffff;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -971,8 +971,8 @@ a:focus {
 
 .info_section .info_form form button:hover {
   background-color: transparent;
-  border-color: #24d278;
-  color: #24d278;
+  border-color: #ffcf1e;
+  color: #ffcf1e;
 }
 
 .info_section .info_form .social_box {

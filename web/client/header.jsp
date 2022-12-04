@@ -136,16 +136,16 @@
                         <%
                             if (c.getCategories().size() > 0) {
                         %>
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                        <a href="shop.jsp?categorie=<%=c.getId()%>" class="nav-link dropdown-toggle" data-toggle="dropdown">
                             <%=c.getNom()%><i class="fa fa-angle-right float-right mt-1"></i>
                         </a>
                         <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
                             <% for (Categorie sbc : c.getCategories()) {%>
-                            <a href="" class="dropdown-item"><%=sbc.getNom()%></a>
+                            <a href="shop.jsp?categorie=<%=sbc.getId()%>" class="dropdown-item"><%=sbc.getNom()%></a>
                             <% } %>
                         </div>
                         <% } else {%>
-                        <a href="" class="nav-item nav-link"><%=c.getNom()%></a>
+                        <a href="shop.jsp?categorie=<%=c.getId()%>" class="nav-item nav-link"><%=c.getNom()%></a>
                         <%}%>
                     </div>
                     <%

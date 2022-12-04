@@ -16,7 +16,6 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="Plateforme de vente" name="keywords">
         <meta content="Plateforme de vente" name="description">
-        <script src="js/jquery-3.3.1.min.js"></script>
         <!-- Favicon -->
         <link href="img/favicon.ico" rel="icon">
 
