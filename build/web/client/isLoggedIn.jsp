@@ -8,4 +8,5 @@
 
 <%
     middleware.SessionUtil.isLoggedIn(request, response);
+    System.out.println("hhhh");
 %>

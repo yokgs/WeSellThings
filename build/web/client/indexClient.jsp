@@ -117,12 +117,14 @@
         <!-- Featured End -->
 
         <%            CategorieService cc = new CategorieService();
-            
+
         %>
         <!-- Categories Start -->
         <div class="container-fluid pt-5">
             <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Categories</span></h2>
             <div class="row px-xl-5 pb-3">
+                <%                    for (Categorie c : cc.findAll()) {
+                %>
                 <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                     <a class="text-decoration-none" href="">
                         <div class="cat-item d-flex align-items-center mb-4">
@@ -130,90 +132,20 @@
                                 <img class="img-fluid" src="img/catnotyet.jpg" alt="">
                             </div>
                             <div class="flex-fill pl-3">
-                                <h6><%=cc.findAll().get(0).getNom()%></h6>
-                                <small class="text-body"><%=(new CategorieDTO(cc.findAll().get(0))).getProduits()%> Products</small>
+                                <h6><%=c.getNom()%></h6>
+                                <small class="text-body"><%=(new CategorieDTO(c)).getProduits()%> Products</small>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                    <a class="text-decoration-none" href="">
-                        <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                            <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                <img class="img-fluid" src="img/catnotyet.jpg" alt="">
-                            </div>
-                            <div class="flex-fill pl-3">
-                                <h6><%=cc.findAll().get(4).getNom()%></h6>
-                                <small class="text-body"><%=(new CategorieDTO(cc.findAll().get(4))).getProduits()%> Products</small>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                    <a class="text-decoration-none" href="">
-                        <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                            <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                <img class="img-fluid" src="img/catnotyet.jpg" alt="">
-                            </div>
-                            <div class="flex-fill pl-3">
-                                <h6><%=cc.findAll().get(8).getNom()%></h6>
-                                <small class="text-body"><%=(new CategorieDTO(cc.findAll().get(8))).getProduits()%> Products</small>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                    <a class="text-decoration-none" href="">
-                        <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                            <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                <img class="img-fluid" src="img/catnotyet.jpg" alt="">
-                            </div>
-                            <div class="flex-fill pl-3">
-                                <h6><%=cc.findAll().get(9).getNom()%></h6>
-                                <small class="text-body"><%=(new CategorieDTO(cc.findAll().get(9))).getProduits()%> Products</small>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                    <a class="text-decoration-none" href="">
-                        <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                            <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                <img class="img-fluid" src="img/catnotyet.jpg" alt="">
-                            </div>
-                            <div class="flex-fill pl-3">
-                                <h6><%=cc.findAll().get(10).getNom()%></h6>
-                                <small class="text-body"><%=(new CategorieDTO(cc.findAll().get(10))).getProduits()%> Products</small>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                    <a class="text-decoration-none" href="">
-                        <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                            <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                <img class="img-fluid" src="img/catnotyet.jpg" alt="">
-                            </div>
-                            <div class="flex-fill pl-3">
-                                <h6><%=cc.findAll().get(11).getNom()%></h6>
-                                <small class="text-body"><%=(new CategorieDTO(cc.findAll().get(11))).getProduits()%> Products</small>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                    <a class="text-decoration-none" href="">
-                        <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                            <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                <img class="img-fluid" src="img/catnotyet.jpg" alt="">
-                            </div>
-                            <div class="flex-fill pl-3">
-                                <h6><%=cc.findAll().get(12).getNom()%></h6>
-                                <small class="text-body"><%=(new CategorieDTO(cc.findAll().get(12))).getProduits()%> Products</small>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                <% }%>
+
+
+
+
+
+
+
             </div>
         </div>
         <!-- Categories End -->

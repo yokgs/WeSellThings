@@ -8,6 +8,7 @@ package test;
 import entities.Client;
 import entities.Commande;
 import entities.LigneCommande;
+import entities.LigneCommandePK;
 import org.hibernate.Hibernate;
 import service.CommandeService;
 import service.LigneCommandeService;
@@ -20,14 +21,13 @@ import util.HibernateUtil;
  */
 public class Test1 {
     public static void main(String[] args) {
-        HibernateUtil.getSessionFactory().openSession();
-        CommandeService cs = new CommandeService();
-        ProduitService ps = new ProduitService();
-        LigneCommandeService ls = new LigneCommandeService();
+        //HibernateUtil.getSessionFactory().openSession();
         
-        Commande c = new Commande((Client) new UserService().findByEmail("khjm@gmail.com"));
-        LigneCommande lc = new LigneCommande(324, 3, ps.findById(2),c);
-           
-        System.out.println(ls.create(lc));
+        CommandeService cs = new CommandeService();
+        ProduitService ps=new  ProduitService();
+        LigneCommandePK pk = new LigneCommandePK(1,4);
+        LigneCommande ll = new LigneCommande(pk, 55, 99);
+        LigneCommandeService ls = new LigneCommandeService();
+        ls.create(ll);
     }
 }

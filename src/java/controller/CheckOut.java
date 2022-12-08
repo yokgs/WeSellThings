@@ -8,7 +8,9 @@ package controller;
 import com.google.gson.Gson;
 import entities.Client;
 import entities.Commande;
+import entities.CommandeEtat;
 import entities.LigneCommande;
+import entities.LigneCommandePK;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -29,7 +31,8 @@ import service.LigneCommandeService;
  */
 @WebServlet(name = "CheckOut", urlPatterns = {"/cart/validate"})
 public class CheckOut extends HttpServlet {
-private CommandeService cs = new CommandeService();
+
+    private CommandeService cs = new CommandeService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -37,10 +40,25 @@ private CommandeService cs = new CommandeService();
         try {
             HttpSession session = request.getSession();
             Commande commande = (Commande) session.getAttribute("cart");
+            System.out.println(commande);
             commande.setDate(new Date());
-            cs.create(commande);
+            commande.setEtat(CommandeEtat.ENCOURS);
+            boolean created = cs.create(commande);
             List<LigneCommande> lc = commande.getLigneCommandes();
-            lc.forEach(x->(new LigneCommandeService()).create(x));
+            System.out.println(lc);
+            List<Commande> cmd = cs.findLatestForClient((Client) session.getAttribute("user-o"));
+            if (created) {
+                lc.forEach(x -> {
+                    System.out.println(cmd);
+                    int prdid = x.getCommandePK().getProduitId(),
+                            cmdid = cmd.get(0).getId();
+
+                    LigneCommandePK pk = new LigneCommandePK(prdid, cmdid);
+                    x.setCommandePK(pk);
+                    (new LigneCommandeService()).create(x);
+                }
+                );
+            }
             session.setAttribute("cart", new Commande((Client) session.getAttribute("user-o")));
             response.sendRedirect("/client/indexClient.jsp");
         } catch (NumberFormatException e) {

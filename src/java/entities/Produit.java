@@ -27,7 +27,7 @@ public class Produit {
     private String nom, designation, description;
     private double prix;
     private int unite;
-    private byte[] image;
+    private String image;
 
     @ManyToOne
     private Categorie categorie;
@@ -35,13 +35,12 @@ public class Produit {
     private Marque marque;
 
     @OneToMany(mappedBy = "produit", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-
     private List<LigneCommande> ligneCommandes;
 
     public Produit() {
     }
 
-    public Produit(String nom, String designation, byte[] image, String description, double prix, int unite, Categorie categorie, Marque marque) {
+    public Produit(String nom, String designation, String image, String description, double prix, int unite, Categorie categorie, Marque marque) {
         this.nom = nom;
         this.designation = designation;
         this.image = image;
@@ -84,11 +83,11 @@ public class Produit {
         this.designation = designation;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

@@ -7,6 +7,7 @@ package dto;
 
 import entities.Client;
 import entities.Commande;
+import entities.CommandeEtat;
 import entities.CommandeEtatConverter;
 
 import java.util.Date;
@@ -69,4 +70,19 @@ public class CommandeDTO {
         return produits;
     }
 
+    public static String _etat(CommandeEtat etat1) {
+        switch (etat1) {
+            case ENCOURS:
+                return "En cours";
+            case APPROUVEE:
+                return "Approvee";
+            case LIVREE:
+                return "livree";
+            case ANNULEE:
+                return "Annulee";
+            default:
+                return "En cours";
+        }
+
+    }
 }

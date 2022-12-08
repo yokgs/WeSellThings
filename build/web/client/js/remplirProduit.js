@@ -42,7 +42,7 @@ window.remplirProduit = remplirProduit;
 function remplirProduit1args(compId, data) {
     var html = "";
     data.forEach(function (x) {
-        html += remplirProduit(x.id, x.nom, x.description, x.designation, "img/notyet.jpg", x.prix, x.unite, x.categorie, x.marque, x.nbrVotes);
+        html += remplirProduit(x.id, x.nom, x.description, x.designation, "..\\ressource\\images\\"+x.image, x.prix, x.unite, x.categorie, x.marque, x.nbrVotes);
     });
     $(compId).html(html);
 }
@@ -56,4 +56,3 @@ $.ajax({
         remplirProduit1args("#produits", data);
     }
 });
-alert(document.location)

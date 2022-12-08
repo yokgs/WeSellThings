@@ -41,6 +41,8 @@
 
         <!-- Header(Top bar and navbar) Start -->
         <%@include file="header.jsp" %>
+        <%@include file="isLoggedIn.jsp" %>
+
         <!-- Header End -->
 
         <!-- Breadcrumb Start -->
@@ -57,7 +59,10 @@
         </div>
         <!-- Breadcrumb End -->
 
-
+        <%            Commande commande = (Commande) session.getAttribute("cart");
+        ProduitService ps= new ProduitService();
+            if (commande != null) {
+        %>
         <!-- Cart Start -->
         <div class="container-fluid">
             <div class="row px-xl-5">
@@ -74,12 +79,13 @@
                         </thead> 
 
                         <tbody class="align-middle">
-                            <% Commande commande = (Commande) session.getAttribute("cart");
+                            <%
                                 for (LigneCommande lc : commande.getLigneCommandes()) {
+                                    Produit produit = ps.findById(lc.getCommandePK().getProduitId());
                             %>
                             <tr>
-                                <td><img src="img/product-1.jpg" alt="" style="width: 50px;"> <%= lc.getProduit().getNom()%></td>
-                                <td class="align-middle"> <%= lc.getProduit().getPrix()%></td>
+                                <td><img src="..\\ressource\\images\\<%= produit.getImage() %>" alt="" style="width: 50px;"> <%= produit.getNom()%></td>
+                                <td class="align-middle"> <%= produit.getPrix()%></td>
                                 <td class="align-middle">
                                     <div class="input-group quantity mx-auto" style="width: 100px;">
                                         <div class="input-group-btn">
@@ -135,8 +141,9 @@
             </div>
         </div>
         <!-- Cart End -->
-
-
+        <%
+            }
+        %>
         <!-- Footer Start -->
         <%@include file="footer.jsp" %>
         <!-- Footer End -->

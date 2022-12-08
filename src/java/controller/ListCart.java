@@ -8,7 +8,9 @@ package controller;
 import com.google.gson.Gson;
 import dto.CommandeDTO;
 import entities.Commande;
+import entities.CommandeEtat;
 import entities.LigneCommande;
+import entities.LigneCommandePK;
 import entities.Produit;
 
 import java.io.IOException;
@@ -41,17 +43,20 @@ public class ListCart extends HttpServlet {
                     quantite = Integer.parseInt(request.getParameter("quantite"));
             Produit produit = (new ProduitService()).findById(id);
             Commande commande = (Commande) request.getSession().getAttribute("cart");
+            
+            System.out.println(commande);
             LigneCommande ligneCommande;
             boolean exist = false;
             for (LigneCommande lc : commande.getLigneCommandes()) {
-                exist = exist || lc.getProduit().getId() == id;
+                exist = exist || lc.getCommandePK().getProduitId() == id;
                 if (exist) {
                     lc.setQuantité(quantite + lc.getQuantité());
                     break;
                 }
             }
             if (!exist) {
-                ligneCommande = new LigneCommande(quantite * produit.getPrix(), quantite, produit, commande);
+                LigneCommandePK pk = new LigneCommandePK(produit.getId(), 0);
+                ligneCommande = new LigneCommande(pk, quantite * produit.getPrix(), quantite);
                 commande.getLigneCommandes().add(ligneCommande);
             }
             request.getSession().setAttribute("cart", commande);
@@ -59,7 +64,7 @@ public class ListCart extends HttpServlet {
         } catch (NumberFormatException e) {
 
         }
-        
+
         response.sendRedirect("/client/cart.jsp");
 
     }

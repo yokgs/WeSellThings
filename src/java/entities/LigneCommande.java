@@ -25,19 +25,18 @@ public class LigneCommande {
     private Produit produit;
     @ManyToOne
     @JoinColumn(name = "commandeId", insertable = false, updatable = false)
-    @OneToOne(mappedBy = "ligneCommande")
     private Commande commande;
 
     public LigneCommande() {
     }
 
-    public LigneCommande(double prixVente, int quantité, Produit produit, Commande commande) {
+    public LigneCommande(LigneCommandePK commandePK, double prixVente, int quantité) {
+        this.commandePK = commandePK;
         this.prixVente = prixVente;
         this.quantité = quantité;
-        this.produit = produit;
-        this.commande = commande;
     }
 
+   
     public LigneCommandePK getCommandePK() {
         return commandePK;
     }

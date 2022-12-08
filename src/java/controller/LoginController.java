@@ -35,10 +35,10 @@ public class LoginController extends HttpServlet {
     /**
      * Handles the HTTP <code>GET</code> method.
      *
-     * @param request  servlet request
+     * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException      if an I/O error occurs
+     * @throws IOException if an I/O error occurs
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -49,10 +49,10 @@ public class LoginController extends HttpServlet {
     /**
      * Handles the HTTP <code>POST</code> method.
      *
-     * @param request  servlet request
+     * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException      if an I/O error occurs
+     * @throws IOException if an I/O error occurs
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -71,15 +71,16 @@ public class LoginController extends HttpServlet {
                 session.setAttribute("user-r", as.findById(user.getId()) != null ? "admin" : "client");
                 if (user instanceof Client) {
                     session.setAttribute("cart", new Commande((Client) user));
+                    response.sendRedirect("./client/indexClient.jsp");
+                } else {
+                    response.sendRedirect("./admin/produits.html");
                 }
-                response.sendRedirect("./client/indexClient.jsp");
             } else {
                 response.sendRedirect("./client/connexion.html?incorrect password");
             }
         } else {
             response.sendRedirect("./client/connexion.html");
         }
-
     }
 
     /**

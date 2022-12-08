@@ -41,53 +41,7 @@ $(document).ready(function () {
     }
 
 
-    $('#produitform').submit(function (e) {
-        console.log(new FormData($('#produitform')))
-        $.ajax({
-            url: '/produit',
-            method: 'POST',
-            data: new FormData(this),
-            processData: false,
-            contentType: false
-        });
-        e.preventDefault();
-    });
+    
 
-    $('#btnAddProduit').click(function () {
-        var nom = $('#nomProduit').val();
-        var prix = $('#prixProduit').val();
-        var description = $('#descriptionProduit').val();
-        var designation = $('#designationProduit').val();
-        var categorie = $('#subCategorie').val();
-        var marque = $('#marque').val();
-        var unite = $('#uniteProduit').val();
-        var data = new FormData();
-        data.append('image', $('#imageProduit')[0].files[0]);
-        data.append("nom", nom);
-        data.append("prix", prix);
-        data.append("description", description);
-        data.append("categorie", categorie);
-        data.append("marque", marque);
-        data.append("unite", unite);
-
-
-        $.ajax({
-            url: '/produit',
-            method: 'POST',
-            data: data,
-            processData: false,
-            contentType: false,
-            success: function (data, textStatus, jqXHR) {
-                alert('Le produit "' + nom + '" est bien ajouté ! ');
-                $('#nomProduit').val('');
-                $('#prixProduit').val('');
-                $('#descriptionProduit').val('');
-                $('#imageProduit').val('');
-                $('#designationProduit').val('');
-                $('#subCategorie').val('');
-                $('#marque').val('');
-                $('#uniteProduit').val('');
-            }
-        });
-    })
+   
 })

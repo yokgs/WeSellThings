@@ -4,9 +4,13 @@
     Author     : lenovo
 --%>
 
+<%@page import="entities.LigneCommande"%>
+<%@page import="service.CommandeService"%>
 <%@page import="entities.Produit"%>
 <%@page import="service.ProduitService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="isLoggedIn.jsp" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,24 +59,27 @@
         </div>
         <!-- Breadcrumb End -->
 
-
+        <%    Client cl = (Client) session.getAttribute("user-o");
+            CommandeService css = new CommandeService();
+            ProduitService ps= new ProduitService();
+            Commande commande = css.findById(Integer.parseInt(request.getParameter("commande")));
+        %>
         <div class="col-lg-16 table-responsive mb-5">
             <table class="table table-light table-responsive text mb-0">                                     
                 <tbody class="align-middle">
                     <tr>
-                        <td class="align-middle">Le nom du Destinataire: Saad Baouchouch</td>
-                        <td class="align-middle">Contact téléphonique: 062874468</td>
-                        <td class="align-middle">Adresse de réception: 875 Lot Najah</td>
-                        <td class="align-middle">courriel Electronique: saad@gmail.com</td>
+                        <td class="align-middle">Le nom du Destinataire: <%= cl.getNom() + " " + cl.getPrenom()%></td>
+                        <td class="align-middle">Contact téléphonique: <%= c.getTelephone()%></td>
+                        <td class="align-middle">Adresse de réception: <%= c.getAdresse()%></td>
+                        <td class="align-middle">courriel Electronique: <%= c.getEmail()%></td>
                     </tr>
                     <tr>
-                        <td class="align-middle">Date de commande: 26/06/2019 00:08:57 AM</td>
+                        <td class="align-middle">Date de commande: <%= commande.getDate()%></td>
                         <td class="align-middle">Paiement: PayPal</td>
-                        <td class="align-middle">Livraisons: BERAMHQTR</td>
                     </tr>
                     <tr>
                         <td></td>
-                        
+
                     </tr>
                 </tbody>
             </table>
@@ -86,7 +93,7 @@
                     <table class="table table-light table-borderless table-hover text-center mb-0">
                         <thead>
                             <tr>
-                                <th>Numero de la commande : W1324GFG8765G</th>
+                                <th>Numero de la commande : <%= commande.getId()%></th>
                             </tr>
                         </thead>
                         <thead class="thead-dark">
@@ -117,18 +124,20 @@
 
 
                         <tbody class="align-middle">
+                            <%
+                                for (LigneCommande lc : commande.getLigneCommandes()) {
+                                    Produit produit = ps.findById(lc.getCommandePK().getProduitId());
+                            %>
                             <tr>
-                                <td class="align-middle"><img src="img/notyet.jpg" alt="" style="width: 50px;"> Nom</td>
-                                <td class="align-middle">50$</td>
-                                <td class="align-middle">2</td>
-                                <td class="align-middle">100$</td>
+                                <td class="align-middle"><img src="..\\ressource\\images\\<%= lc.getProduit().getImage() %>" alt="" style="width: 50px;"> <%= lc.getProduit().getNom() %>
+                                </td>
+                                <td class="align-middle"><%= lc.getProduit().getPrix() %>$</td>
+                                <td class="align-middle"><%= lc.getQuantité() %></td>
+                                <td class="align-middle"><%= lc.getPrixVente() %>$</td>
                             </tr>
-                            <tr>
-                                <td class="align-middle"><img src="img/notyet.jpg" alt="" style="width: 50px;"> Nom</td>
-                                <td class="align-middle">50$</td>
-                                <td class="align-middle">2</td>
-                                <td class="align-middle">100$</td>
-                            </tr>
+                           <%
+                                }
+                            %>
                         </tbody>
                     </table>
                 </div>
@@ -138,22 +147,22 @@
                         <div class="border-bottom pb-2">
                             <div class="d-flex justify-content-between mb-3">
                                 <h6>Total</h6>
-                                <h6>300$</h6>
+                                <h6><%= (new CommandeDTO(commande)).getPrix() %></h6>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <h6 class="font-weight-medium">Livraison</h6>
-                                <h6 class="font-weight-medium">2$</h6>
+                                <h6 class="font-weight-medium">6$</h6>
                             </div>
                         </div>
                         <div class="pt-2">
                             <div class="d-flex justify-content-between mt-2">
                                 <h5>Total</h5>
-                                <h5>302$</h5>
+                                <h5><%= (new CommandeDTO(commande)).getPrix() + 6 %> $</h5>
                             </div>
                             <button class="btn btn-primary font-weight-bold my-2 py-3">Voir la facture</button>
                         </div>
                         <div>
-                            <button class="btn btn-danger font-weight-bold my-2 py-3">Annuler la commande</button>
+                            <button onclick="document.location = 'mesCommandes.jsp?delete=<%= commande.getId() %>'" class="btn btn-danger font-weight-bold my-2 py-3">Annuler la commande</button>
                         </div>
                     </div>
                 </div>

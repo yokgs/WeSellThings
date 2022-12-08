@@ -5,6 +5,7 @@ import entities.Client;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,11 +19,16 @@ import javax.servlet.http.HttpServletResponse;
 public class SessionUtil {
 
     public static boolean isLoggedIn(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        boolean b = request.getSession().getAttribute("user-o") != null;
+        HttpSession s = request.getSession();
+        if(s != null){
+        boolean b = s.getAttribute("user-o") == null;
         if (b) {
             response.sendRedirect("/client/connexion.html");
         }
         return b;
+        }
+        response.sendRedirect("/client/connexion.html");
+        return false;
     }
 
     public static boolean isClient(HttpServletRequest request, HttpServletResponse response) throws IOException {

@@ -4,6 +4,8 @@
     Author     : lenovo
 --%>
 
+<%@page import="entities.CommandeEtat"%>
+<%@page import="service.CommandeService"%>
 <%@page import="entities.Produit"%>
 <%@page import="service.ProduitService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -40,6 +42,15 @@
         <!-- Header(Top bar and navbar) Start -->
         <%@include file="header.jsp" %>
         <!-- Header End -->
+        <%            String delete = request.getParameter("delete");
+            if (delete != null) {
+                CommandeService css = new CommandeService();
+                int id = Integer.parseInt(delete);
+                Commande commande = css.findById(id);
+                commande.setEtat(CommandeEtat.ANNULEE);
+                css.update(commande);
+            }
+        %>
 
         <!-- Breadcrumb Start -->
         <div class="container-fluid">
@@ -74,15 +85,20 @@
 
 
                         <tbody class="align-middle">
+
+                            <% CommandeService css = new CommandeService();
+                                Client cl = (Client) session.getAttribute("user-o");
+                                for (Commande c : css.findByClient(cl)) {
+                            %>
                             <tr>
-
-                                <td class="align-middle">W1324GFG8765G</td>
-                                <td class="align-middle">2022/06/07</td> 
-                                <td class="align-middle">699$</td>
-                                <td class="align-middle">En cours de la revision</td>
-                                <td class="align-middle"><a href='detailCommande.jsp' class="btn btn-sm btn-info"><i class="fa fa-info"></i></a></td>
-
+                                <td class="align-middle"><%= c.getId()%></td>
+                                <td class="align-middle"><%= c.getDate()%></td> 
+                                <td class="align-middle"><%= (new CommandeDTO(c)).getPrix()%>$</td>
+                                <td class="align-middle"><%= CommandeDTO._etat(c.getEtat())%></td>
+                                <td class="align-middle"><a href='detailCommande.jsp?commande=<%= c.getId()%>' class="btn btn-sm btn-info"><i class="fa fa-info"></i></a></td>
                             </tr>
+                            <% }
+                            %>
                         </tbody>
                     </table>
                 </div>

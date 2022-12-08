@@ -4,9 +4,12 @@
     Author     : lenovo
 --%>
 
+<%@page import="service.ProduitService"%>
 <%@page import="entities.LigneCommande"%>
 <%@page import="entities.Produit"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="isLoggedIn.jsp" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,32 +64,31 @@
         <div class="container-fluid">
             <div class="row px-xl-5">
                 <div class="col-lg-8">
-                    <%
-                    Client c = (Client) session.getAttribute("user-o");
-                    
+                    <%                        Client c = (Client) session.getAttribute("user-o");
+
                     %>
                     <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Billing Address</span></h5>
                     <div class="bg-light p-30 mb-5">
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 <label>First Name</label>
-                                <input class="form-control" type="text" readonly="" placeholder="John" value="<%= c.getPrenom() %>">
+                                <input class="form-control" type="text" readonly="" placeholder="John" value="<%= c.getPrenom()%>">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Last Name</label>
-                                <input class="form-control" type="text" readonly="" placeholder="Doe" value="<%= c.getNom() %>">
+                                <input class="form-control" type="text" readonly="" placeholder="Doe" value="<%= c.getNom()%>">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>E-mail</label>
-                                <input class="form-control" type="email" readonly="" placeholder="example@email.com" value="<%= c.getEmail() %>">
+                                <input class="form-control" type="email" readonly="" placeholder="example@email.com" value="<%= c.getEmail()%>">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Mobile No</label>
-                                <input class="form-control" type="tel" readonly="" placeholder="+123 456 789" value="<%= c.getTelephone() %>">
+                                <input class="form-control" type="tel" readonly="" placeholder="+123 456 789" value="<%= c.getTelephone()%>">
                             </div>
                             <div class="col-md-12 form-group">
                                 <label>Address</label>
-                                <textarea class="form-control" type="text"  readonly="" placeholder="123 Street"><%= c.getAdresse() %></textarea>
+                                <textarea class="form-control" type="text"  readonly="" placeholder="123 Street"><%= c.getAdresse()%></textarea>
                             </div>
 
 
@@ -155,11 +157,12 @@
 
                             <%                                Commande commande = (Commande) session.getAttribute("cart");
                                 double prix = (new CommandeDTO(commande)).getPrix();
+                                ProduitService ps = new ProduitService();
                                 for (LigneCommande p : commande.getLigneCommandes()) {
-
+                                    Produit produit = ps.findById(p.getCommandePK().getProduitId());
                             %>
                             <div class="d-flex justify-content-between">
-                                <p><%= p.getProduit().getNom()%></p>
+                                <p><%= produit.getNom()%></p>
                                 <p>$<%= p.getPrixVente()%></p>
                             </div>
                             <%}%>
@@ -167,7 +170,7 @@
                         <div class="border-bottom pt-3 pb-2">
                             <div class="d-flex justify-content-between mb-3">
                                 <h6>Subtotal</h6>
-                                <h6>$<%= prix %></h6>
+                                <h6>$<%= prix%></h6>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <h6 class="font-weight-medium">Shipping</h6>
@@ -191,7 +194,7 @@
                                 </div>
                             </div>
                             <button onclick="document.location = '/cart/validate'" class="btn btn-block btn-primary font-weight-bold py-3">Place Order</button>
-                            
+
                         </div>
                     </div>
                 </div>

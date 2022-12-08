@@ -45,6 +45,8 @@ public class Commande implements Serializable {
     @Enumerated(EnumType.ORDINAL)
     @Convert(converter = CommandeEtatConverter.class)
     private CommandeEtat etat;
+    @ManyToOne
+    private Facture facture;
 
     public Commande() {
     }

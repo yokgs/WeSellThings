@@ -14,9 +14,9 @@ public class ProduitDTO {
 
     private final int id;
     private final String nom, designation, description;
-    private final byte[] image;
+    private final String image;
     private final double prix;
-    private final int unite;
+    private final int unite,marqueId;
     private final String categorie;
     private final String marque;
     private final int ligneCommandes;
@@ -32,6 +32,7 @@ public class ProduitDTO {
         this.nom = produit.getNom();
         this.prix = produit.getPrix();
         this.unite = produit.getUnite();
+        this.marqueId = produit.getMarque().getId();
     }
 
     public int getId() {
@@ -46,7 +47,7 @@ public class ProduitDTO {
         return designation;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 

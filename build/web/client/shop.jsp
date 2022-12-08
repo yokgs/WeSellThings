@@ -4,6 +4,7 @@
     Author     : lenovo
 --%>
 
+<%@page import="entities.Marque"%>
 <%@page import="dto.MarqueDTO"%>
 <%@page import="service.MarqueService"%>
 <%@page import="java.util.ArrayList"%>
@@ -11,7 +12,6 @@
 <%@page import="entities.Produit"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="isLoggedIn.jsp" %>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -36,7 +36,7 @@
         <!-- Libraries Stylesheet -->
         <link href="lib/animate/animate.min.css" rel="stylesheet">
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
+        <script defer src="js/filter.js" type="text/javascript"></script>
         <!-- Customized Bootstrap Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
     </head>
@@ -55,7 +55,7 @@
                     <nav class="breadcrumb bg-light mb-30">
                         <a class="breadcrumb-item text-dark" href="indexClient.jsp">Home</a>
                         <span class="breadcrumb-item active">Shop</span>
-                        
+
                     </nav>
                 </div>
             </div>
@@ -71,80 +71,44 @@
                     <!-- Price Start -->
                     <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Filter by price</span></h5>
                     <div class="bg-light p-4 mb-30">
-                        <form>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" checked id="price-all">
-                                <label class="custom-control-label" for="price-all">All Price</label>
-                                <span class="badge border font-weight-normal">1000</span>
-                            </div>
-                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="price-1">
+                                <input onclick="loadPrice(0)" type="checkbox" class="custom-control-input" checked id="price-1">
                                 <label class="custom-control-label" for="price-1">$0 - $100</label>
-                                <span class="badge border font-weight-normal">150</span>
                             </div>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="price-2">
+                                <input onclick="loadPrice(100)" type="checkbox" class="custom-control-input" checked id="price-2">
                                 <label class="custom-control-label" for="price-2">$100 - $200</label>
-                                <span class="badge border font-weight-normal">295</span>
                             </div>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="price-3">
+                                <input onclick="loadPrice(200)" type="checkbox" class="custom-control-input" checked id="price-3">
                                 <label class="custom-control-label" for="price-3">$200 - $300</label>
-                                <span class="badge border font-weight-normal">246</span>
                             </div>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="price-4">
+                                <input onclick="loadPrice(300)" type="checkbox" class="custom-control-input" checked id="price-4">
                                 <label class="custom-control-label" for="price-4">$300 - $400</label>
-                                <span class="badge border font-weight-normal">145</span>
                             </div>
                             <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-                                <input type="checkbox" class="custom-control-input" id="price-5">
+                                <input onclick="loadPrice(400)" type="checkbox" class="custom-control-input" checked id="price-5">
                                 <label class="custom-control-label" for="price-5">$400 - $500</label>
-                                <span class="badge border font-weight-normal">168</span>
                             </div>
-                        </form>
                     </div>
                     <!-- Price End -->
 
                     <!-- Marque Start -->
-                                            <%                                                    MarqueService ms = new MarqueService();
-                            ProduitService ps = new ProduitService();
+                    <%                        MarqueService ms = new MarqueService();
+                        ProduitService ps = new ProduitService();
 
-                        %>
+                    %>
                     <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Filter by marque</span></h5>
                     <div class="bg-light p-4 mb-30">
-                        <form>
-                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" checked id="color-all">
-                                <label class="custom-control-label" for="price-all">All Marque</label>
-                                <span class="badge border font-weight-normal"><%=ps.findAll().size()%></span>
-                            </div>
-                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input onclick="document.location = 'shop.jsp?marque=2'" type="checkbox" class="custom-control-input" id="color-1">
-                                <label class="custom-control-label" for="color-1"><%=ms.findById(2).getNom()%></label>
-                                <span class="badge border font-weight-normal"><%=(new MarqueDTO(ms.findById(2)).getProduits())%></span>
-                            </div>
-                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="color-2">
-                                <label class="custom-control-label" for="color-2"><%=ms.findById(3).getNom()%></label>
-                                <span class="badge border font-weight-normal"><%=(new MarqueDTO(ms.findById(3)).getProduits())%></span>
-                            </div>
-                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="color-3">
-                                <label class="custom-control-label" for="color-3"><%=ms.findById(4).getNom()%></label>
-                                <span class="badge border font-weight-normal"><%=(new MarqueDTO(ms.findById(4)).getProduits())%></span>
-                            </div>
-                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                <input type="checkbox" class="custom-control-input" id="color-4">
-                                <label class="custom-control-label" for="color-4"><%=ms.findById(5).getNom()%></label>
-                                <span class="badge border font-weight-normal"><%=(new MarqueDTO(ms.findById(5)).getProduits())%></span>
-                            </div>
-                            <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-                                <input type="checkbox" class="custom-control-input" id="color-5">
-                                <label class="custom-control-label" for="color-5"><%=ms.findById(6).getNom()%></label>
-                                <span class="badge border font-weight-normal"><%=(new MarqueDTO(ms.findById(6)).getProduits())%></span>
-                            </div>
-                        </form>
+                        
+                        <% for (Marque m : ms.findAll()) {%>
+                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input onclick="load(<%= m.getId()%>)" type="checkbox" class="custom-control-input" checked id="color-<%= m.getId()%>">
+                            <label class="custom-control-label" for="color-<%= m.getId()%>"><%=m.getNom()%></label>
+                            <span class="badge border font-weight-normal"><%= (new MarqueDTO(m)).getProduits()%></span>
+                        </div>
+                        <% }%>
                     </div>
                     <!-- Marque End -->
 
@@ -183,7 +147,7 @@
                             </div>
                         </div>
 
-                                                <div id="produit-s" class="row px-xl-5">
+                        <div id="produit-s" class="row px-xl-5">
                             <% List<Produit> prds = new ArrayList<>();
                                 if (request.getParameter("categorie") != null) {
 
@@ -193,14 +157,19 @@
                                 } else {
                                     prds = (new ProduitService()).findAll();
                                 }
+
                                 for (Produit p : prds) {
                             %>
                             <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                                 <div class="product-item bg-light mb-4">
                                     <div
+                                        <%
+                                            ProduitService pss = new ProduitService();
+
+                                        %>
                                         class="product-img position-relative overflow-hidden">
-                                        <img class="img-fluid w-100" src="img/notyet.jpg"
-                                             alt="">
+                                        <img class="img-fluid w-100" src="<%="..\\ressource\\images\\" + p.getImage()%>" alt="<%= p.getNom()%>">
+
                                         <div class="product-action"><a
                                                 class="btn btn-outline-dark btn-square"
                                                 href="produit.jsp?id=<%= p.getId()%>"><i
@@ -237,7 +206,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <% }%>
+
+                            <%
+
+                                }%>
 
 
                         </div>
@@ -248,8 +220,6 @@
                                 <ul class="pagination justify-content-center">
                                     <li class="page-item disabled"><a class="page-link" href="#">Previous</span></a></li>
                                     <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
                                     <li class="page-item"><a class="page-link" href="#">Next</a></li>
                                 </ul>
                             </nav>

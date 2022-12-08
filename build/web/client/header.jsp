@@ -26,11 +26,11 @@
             <div class="d-inline-flex align-items-center">
                 <%!Client c;%>
                 <%
-                    HttpSession s = request.getSession();
-                    String client = "Mon Compte";
                     
+                    String client = "Mon Compte";
+
                     try {
-                        c = (Client) s.getAttribute("user-o");
+                        c = (Client) session.getAttribute("user-o");
                         client = c.getPrenom();
                     } catch (Exception e) {
                     }
@@ -50,10 +50,12 @@
                         <button onclick="document.location = 'connexion.html'" class="dropdown-item" >Se connecter</button>
 
                         <%} else {%>
-                            <a class="dropdown-item" href="/deconnexion">Se déconnecter</a>
+                        <a class="dropdown-item" href="/deconnexion">Se déconnecter</a>
                         <%}%>
+                        <%if (middleware.SessionUtil.isClient(request, response)) {%>
                         <button class="dropdown-item" type="button">Mon Profile</button>
-                        <a class="dropdown-item" type="button" href="mesCommandes.jsp">Mes Commandes</a>                     
+                        <a class="dropdown-item" type="button" href="mesCommandes.jsp">Mes Commandes</a>  
+                        <%}%>
                     </div>
                 </div> 
                 <div class="btn-group mx-2">
@@ -179,9 +181,11 @@
                         <a href="cart.jsp" class="btn px-0 ml-3">
                             <i class="fas fa-shopping-cart text-primary"></i>
                             <% int amount = 0;
-                            if(session.getAttribute("user-o") != null) amount = (new CommandeDTO((Commande) session.getAttribute("cart"))).getProduits();
+                                if (session.getAttribute("user-o") != null) {
+                                    amount = (new CommandeDTO((Commande) session.getAttribute("cart"))).getProduits();
+                                }
                             %>
-                            <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;"><%= amount %></span>
+                            <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;"><%= amount%></span>
                         </a>
                     </div>
                 </div>
